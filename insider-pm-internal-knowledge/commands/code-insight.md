@@ -10,4 +10,4 @@ Explore how this is implemented in the codebase: $ARGUMENTS
 
 **Entry point:** `/code-insight`
 
-Invoke the `pm-knowledge-hub` skill from `${CLAUDE_PLUGIN_ROOT}/skills/pm-knowledge-hub/SKILL.md` with the user's query. Follow all steps in the skill, using "Codebase first" as the source priority.
+Invoke the `pm-internal-knowledge` skill from `${CLAUDE_PLUGIN_ROOT}/skills/pm-internal-knowledge/SKILL.md` with the user's query. Follow all steps in the skill, using "Codebase first" as the source priority.

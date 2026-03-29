@@ -10,4 +10,4 @@ Search Insider Academy for learning materials about: $ARGUMENTS
 
 **Entry point:** `/academy-learn`
 
-Invoke the `pm-knowledge-hub` skill from `${CLAUDE_PLUGIN_ROOT}/skills/pm-knowledge-hub/SKILL.md` with the user's query. Follow all steps in the skill, using "Academy first" as the source priority.
+Invoke the `pm-internal-knowledge` skill from `${CLAUDE_PLUGIN_ROOT}/skills/pm-internal-knowledge/SKILL.md` with the user's query. Follow all steps in the skill, using "Academy first" as the source priority.

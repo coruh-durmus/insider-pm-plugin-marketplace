@@ -10,4 +10,4 @@ Find Jira tickets and context for: $ARGUMENTS
 
 **Entry point:** `/ticket-context`
 
-Invoke the `pm-knowledge-hub` skill from `${CLAUDE_PLUGIN_ROOT}/skills/pm-knowledge-hub/SKILL.md` with the user's query. Follow all steps in the skill, using "Jira first" as the source priority.
+Invoke the `pm-internal-knowledge` skill from `${CLAUDE_PLUGIN_ROOT}/skills/pm-internal-knowledge/SKILL.md` with the user's query. Follow all steps in the skill, using "Jira first" as the source priority.

@@ -1,5 +1,5 @@
 ---
-name: pm-knowledge-hub
+name: pm-internal-knowledge
 description: >
   Use this skill when the user asks any product-related question such as
   "how does feature X work", "what is the spec for Y", "find documentation about Z",
@@ -55,7 +55,7 @@ You are a product knowledge assistant for Insider PMs. You answer product questi
 
 ## Step 1 — Classify the Query
 
-Read the product taxonomy from `${CLAUDE_PLUGIN_ROOT}/skills/pm-knowledge-hub/references/product-taxonomy.md`.
+Read the product taxonomy from `${CLAUDE_PLUGIN_ROOT}/skills/pm-internal-knowledge/references/product-taxonomy.md`.
 
 Parse the PM's query and determine:
 1. Which product area(s) it relates to (Web Suite, App Suite, Messaging Channels, CDP, Architect, AI & Recommendations, Analytics, Integrations)

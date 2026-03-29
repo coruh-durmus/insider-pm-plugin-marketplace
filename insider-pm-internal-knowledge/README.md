@@ -28,7 +28,7 @@ Every query is also sent to **@hop** (Insider's internal Q&A bot in Slack) in pa
 
 ## Skill
 
-The `pm-knowledge-hub` skill activates automatically when you ask product-related questions. It classifies your query using Insider's product taxonomy, searches relevant sources, and returns a unified answer with inline citations.
+The `pm-internal-knowledge` skill activates automatically when you ask product-related questions. It classifies your query using Insider's product taxonomy, searches relevant sources, and returns a unified answer with inline citations.
 
 ## Product Areas
 
