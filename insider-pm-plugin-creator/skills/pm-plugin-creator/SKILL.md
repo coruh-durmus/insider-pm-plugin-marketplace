@@ -263,6 +263,7 @@ Ask the PM:
 1. Create the plugin directory and all files under the `Plugins/` directory (sibling to other plugins)
 2. Add the plugin entry to `Plugins/.claude-plugin/marketplace.json`
 3. Add a row to the Available Plugins table in `Plugins/README.md`
+4. Add the plugin and its owner to the **Review & Approval** table in `Plugins/README.md` (ask the PM who should be the owner for PR reviews)
 
 Then ask about PR:
 > "Would you like to open a PR to submit this plugin to the marketplace?

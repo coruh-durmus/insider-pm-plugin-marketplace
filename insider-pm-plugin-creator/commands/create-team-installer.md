@@ -107,6 +107,7 @@ After approval:
 1. Create the plugin files in the `Plugins/` directory
 2. Register it in `.claude-plugin/marketplace.json`
 3. Add it to the Team Installers table in `README.md`
+4. Add the plugin and its owner to the **Review & Approval** table in `README.md`
 4. Commit the changes:
    ```bash
    git add <plugin-directory>/ .claude-plugin/marketplace.json README.md

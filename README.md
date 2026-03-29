@@ -162,6 +162,8 @@ The PM or team who created the plugin is responsible for reviewing and approving
 | insider-pm-pvd-writer | Insider PM team |
 | insider-pm-task-writer | Insider PM team |
 | insider-pm-plugin-creator | Insider PM team |
+| prismatic-guide | Insider PM team |
+| insider-kraken-plugin-installer | Kraken team |
 
 ## Keeping Plugins Up to Date
 
