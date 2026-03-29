@@ -40,6 +40,15 @@
       "author": {
         "name": "Insider"
       }
+    },
+    {
+      "name": "insider-pm-pvd-writer",
+      "description": "PVD creator for Insider PMs — competitive research, cross-team alignment, and full knowledge source context",
+      "source": "./insider-pm-pvd-writer",
+      "category": "productivity",
+      "author": {
+        "name": "Insider"
+      }
     }
   ]
 }

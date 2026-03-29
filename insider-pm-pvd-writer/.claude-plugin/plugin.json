@@ -1,0 +1,20 @@
+{
+  "name": "insider-pm-pvd-writer",
+  "version": "0.1.0",
+  "description": "PVD (Product Value Document) creator for Insider PMs — generates detailed PVDs with competitive research, cross-team alignment, and context from all company knowledge sources.",
+  "author": {
+    "name": "Insider"
+  },
+  "dependencies": [
+    "insider-pm-knowledge-hub",
+    "insider-competitor-intel"
+  ],
+  "keywords": [
+    "pvd",
+    "product-value-document",
+    "requirements",
+    "confluence",
+    "insider",
+    "pm"
+  ]
+}

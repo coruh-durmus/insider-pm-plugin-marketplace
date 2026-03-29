@@ -10,6 +10,7 @@ Insider team's shared plugin marketplace for Claude Code.
 | [insider-competitor-intel](./insider-competitor-intel/) | Productivity | Competitive intelligence and benchmarking tool for Insider One — covering Braze, MoEngage, Bloomreach, Klaviyo, Hightouch, Census, Salesforce MC, CleverTap, and Iterable |
 | [insider-pm-knowledge-hub](./insider-pm-knowledge-hub/) | Productivity | Unified product knowledge assistant for Insider PMs — searches Confluence, Jira, codebase, Insider Academy, and Slack with Hop validation |
 | [insider-pm-doc-writer](./insider-pm-doc-writer/) | Productivity | Team-customizable documentation writer for Insider PMs — generates and publishes Confluence docs using context from all knowledge sources |
+| [insider-pm-pvd-writer](./insider-pm-pvd-writer/) | Productivity | PVD creator for Insider PMs — competitive research, cross-team alignment, and full knowledge source context |
 
 ## Setup
 
