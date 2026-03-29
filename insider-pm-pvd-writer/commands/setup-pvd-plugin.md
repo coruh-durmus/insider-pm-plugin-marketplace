@@ -40,8 +40,12 @@ Store the answer as `team_name`.
 
 ## Step 2 — PVD Parent Page
 
-Ask: "What is the page ID or URL of your team's PVD folder in Confluence?"
-> (e.g., the "Kraken PVDs" page under Product Knowledge Base → Product Value Documents → CDP PVDs → Kraken PVDs)
+Ask:
+> "What is the page ID of your team's PVD folder in Confluence? (e.g., the page ID of 'Kraken PVDs' under Product Knowledge Base → Product Value Documents → CDP PVDs → Kraken PVDs)
+>
+> **How to find your page ID:** You can go to your parent Confluence page and ask Rovo for the page ID of your parent page."
+
+The PM can provide either a page ID (numeric) or a page URL. If a URL is provided, extract the page ID from it.
 
 Store the answer as `pvd_parent_page_id`.
 
