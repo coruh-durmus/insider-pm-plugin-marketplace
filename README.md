@@ -160,9 +160,18 @@ The PM or team who created the plugin is responsible for reviewing and approving
 
 ## Updating Plugins
 
-After pulling new changes or when plugins are updated upstream:
+When the marketplace is updated with new plugins or improvements, pull the latest:
 
 ```bash
-claude plugin marketplace update insider-pm-plugin-marketplace
-claude plugin update <plugin-name>@insider-pm-plugin-marketplace
+/plugin marketplace update insider-pm-plugin-marketplace
+/reload-plugins
+```
+
+This updates all installed plugins to their latest versions. Run this periodically or when you hear about new features.
+
+To update a specific plugin:
+
+```bash
+/plugin update <plugin-name>@insider-pm-plugin-marketplace
+/reload-plugins
 ```

@@ -21,6 +21,18 @@ version: 0.1.0
 
 You install and configure all Insider PM plugins for the Kraken team. You install plugins in dependency order, show the pre-configured settings for each, and wait for PM confirmation before proceeding to the next.
 
+## Step 0 — Marketplace Check
+
+First, check if the Insider PM marketplace is already added. If the PM can install plugins from it, proceed. If not, guide them:
+
+> "Before we start, let's make sure the Insider marketplace is set up. Please run:
+> ```
+> /plugin marketplace add Corcit/insider-pm-plugin-marketplace
+> ```
+> Then come back and run `/install-kraken-plugins` again."
+
+Wait for confirmation before proceeding.
+
 ## Installation Order
 
 Install plugins in this order (dependencies first):
@@ -216,7 +228,14 @@ After all plugins are installed, show a summary:
 > | insider-pm-task-writer | Installed + Configured | warehouse-guide, Shopify, prismatic |
 > | insider-pm-plugin-creator | Installed | No config needed |
 >
-> Run `/reload-plugins` to activate all plugins."
+> Run `/reload-plugins` to activate all plugins.
+>
+> **Keeping plugins up to date:** When the marketplace is updated with new plugins or improvements, run:
+> ```
+> /plugin marketplace update insider-pm-plugin-marketplace
+> /reload-plugins
+> ```
+> This pulls the latest versions of all plugins."
 
 ## Important Rules
 
