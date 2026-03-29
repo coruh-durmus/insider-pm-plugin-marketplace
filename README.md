@@ -155,14 +155,14 @@ The PM or team who created the plugin is responsible for reviewing and approving
 
 | Plugin | Owner |
 |--------|-------|
-| warehouse-guide | @Corcit |
+| warehouse-guide | Kraken team |
 | insider-competitor-intel | Insider PM team |
 | insider-pm-internal-knowledge | Insider PM team |
 | insider-pm-doc-writer | Insider PM team |
 | insider-pm-pvd-writer | Insider PM team |
 | insider-pm-task-writer | Insider PM team |
 | insider-pm-plugin-creator | Insider PM team |
-| prismatic-guide | Insider PM team |
+| prismatic-guide | Kraken team |
 | insider-kraken-plugin-installer | Kraken team |
 
 ## Keeping Plugins Up to Date
