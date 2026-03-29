@@ -24,9 +24,9 @@
       }
     },
     {
-      "name": "insider-pm-knowledge-hub",
+      "name": "insider-pm-internal-knowledge",
       "description": "Unified product knowledge assistant for Insider PMs — Confluence, Jira, codebase, Academy, and Slack",
-      "source": "./insider-pm-knowledge-hub",
+      "source": "./insider-pm-internal-knowledge",
       "category": "productivity",
       "author": {
         "name": "Insider"

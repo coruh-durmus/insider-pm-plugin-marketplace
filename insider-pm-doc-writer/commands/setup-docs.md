@@ -8,16 +8,16 @@ Run the interactive setup wizard for the insider-pm-doc-writer plugin.
 
 ## Step 0 — Dependency Check
 
-Before starting the wizard, verify that the `insider-pm-knowledge-hub` plugin is installed.
+Before starting the wizard, verify that the `insider-pm-internal-knowledge` plugin is installed.
 
-Search for the file `insider-pm-knowledge-hub/.claude-plugin/plugin.json` in the Plugins directory (sibling to this plugin's directory).
+Search for the file `insider-pm-internal-knowledge/.claude-plugin/plugin.json` in the Plugins directory (sibling to this plugin's directory).
 
 **If found:** Proceed to Step 1.
 
 **If NOT found:** Stop and show:
-> "This plugin requires `insider-pm-knowledge-hub` to be installed. Please install it first:
+> "This plugin requires `insider-pm-internal-knowledge` to be installed. Please install it first:
 > ```
-> claude plugin install insider-pm-knowledge-hub@insider-pm-plugin-marketplace
+> claude plugin install insider-pm-internal-knowledge@insider-pm-plugin-marketplace
 > ```
 > Once installed, run `/setup-docs` again."
 

@@ -4,7 +4,7 @@ A Claude Code plugin that helps Insider PMs create Product Value Documents (PVDs
 
 ## Requirements
 
-- **`insider-pm-knowledge-hub` plugin** — must be installed first (all internal context gathering)
+- **`insider-pm-internal-knowledge` plugin** — must be installed first (all internal context gathering)
 - **`insider-competitor-intel` plugin** — must be installed first (competitive research)
 - **Atlassian MCP** — for Confluence read and write access
 
@@ -13,7 +13,7 @@ A Claude Code plugin that helps Insider PMs create Product Value Documents (PVDs
 ### 1. Install dependencies
 
 ```bash
-claude plugin install insider-pm-knowledge-hub@insider-pm-plugin-marketplace
+claude plugin install insider-pm-internal-knowledge@insider-pm-plugin-marketplace
 claude plugin install insider-competitor-intel@insider-pm-plugin-marketplace
 ```
 
@@ -67,7 +67,7 @@ See `config/team-config.json.example` for the expected format.
 
 | Source | Access | How |
 |---|---|---|
-| All knowledge sources | Read-only | Via `insider-pm-knowledge-hub` |
+| All knowledge sources | Read-only | Via `insider-pm-internal-knowledge` |
 | Competitor research | Read-only | Via `insider-competitor-intel` |
 | Confluence | Write | Only with your explicit approval + double confirmation |
 

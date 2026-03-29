@@ -11,15 +11,15 @@ Run the interactive setup wizard for the insider-pm-task-writer plugin.
 Before starting the wizard, verify that both required plugins are installed.
 
 Check for these files in sibling plugin directories:
-1. `insider-pm-knowledge-hub/.claude-plugin/plugin.json`
+1. `insider-pm-internal-knowledge/.claude-plugin/plugin.json`
 2. `insider-competitor-intel/.claude-plugin/plugin.json`
 
 **If both found:** Proceed to Step 1.
 
-**If `insider-pm-knowledge-hub` is missing:** Stop and show:
-> "This plugin requires `insider-pm-knowledge-hub` to be installed. Please install it first:
+**If `insider-pm-internal-knowledge` is missing:** Stop and show:
+> "This plugin requires `insider-pm-internal-knowledge` to be installed. Please install it first:
 > ```
-> claude plugin install insider-pm-knowledge-hub@insider-pm-plugin-marketplace
+> claude plugin install insider-pm-internal-knowledge@insider-pm-plugin-marketplace
 > ```
 > Once installed, run `/setup-task-writer` again."
 

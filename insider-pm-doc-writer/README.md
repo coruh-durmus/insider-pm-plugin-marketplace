@@ -4,7 +4,7 @@ A Claude Code plugin that helps Insider PMs create and update product documentat
 
 ## Requirements
 
-- **`insider-pm-knowledge-hub` plugin** — must be installed first (the setup wizard checks for this)
+- **`insider-pm-internal-knowledge` plugin** — must be installed first (the setup wizard checks for this)
 - **Atlassian MCP** — for Confluence read and write access
 - **ekb MCP** — for Jira tickets and codebase search (via knowledge hub)
 - **Slack MCP** — for Slack search and Hop interaction (via knowledge hub)
@@ -14,7 +14,7 @@ A Claude Code plugin that helps Insider PMs create and update product documentat
 ### 1. Install the dependency
 
 ```bash
-claude plugin install insider-pm-knowledge-hub@insider-pm-plugin-marketplace
+claude plugin install insider-pm-internal-knowledge@insider-pm-plugin-marketplace
 ```
 
 ### 2. Install this plugin

@@ -49,7 +49,7 @@ The plugin-creator reads the marketplace to understand available plugins and sug
 
 | Plugin | What it provides |
 |---|---|
-| insider-pm-knowledge-hub | Context from Confluence, Jira, codebase, Academy, Slack, Hop |
+| insider-pm-internal-knowledge | Context from Confluence, Jira, codebase, Academy, Slack, Hop |
 | insider-competitor-intel | Competitive research and benchmarking |
 | warehouse-guide | Snowflake, BigQuery, Databricks, Redshift expertise |
 | insider-pm-doc-writer | Confluence documentation generation |

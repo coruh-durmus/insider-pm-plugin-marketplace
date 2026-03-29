@@ -4,7 +4,7 @@ A Claude Code plugin that helps Insider PMs improve Jira task descriptions. Scor
 
 ## Requirements
 
-- **`insider-pm-knowledge-hub` plugin** — must be installed first (all internal context gathering)
+- **`insider-pm-internal-knowledge` plugin** — must be installed first (all internal context gathering)
 - **`insider-competitor-intel` plugin** — must be installed first (competitive research)
 
 ## Getting Started
@@ -12,7 +12,7 @@ A Claude Code plugin that helps Insider PMs improve Jira task descriptions. Scor
 ### 1. Install dependencies
 
 ```bash
-claude plugin install insider-pm-knowledge-hub@insider-pm-plugin-marketplace
+claude plugin install insider-pm-internal-knowledge@insider-pm-plugin-marketplace
 claude plugin install insider-competitor-intel@insider-pm-plugin-marketplace
 ```
 

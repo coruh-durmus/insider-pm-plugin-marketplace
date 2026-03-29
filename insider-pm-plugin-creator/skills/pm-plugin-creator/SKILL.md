@@ -57,7 +57,7 @@ Ask the PM:
    > "Here are the available plugins:
    > 1. warehouse-guide — Go integrations with data warehouses
    > 2. insider-competitor-intel — competitive intelligence
-   > 3. insider-pm-knowledge-hub — unified product knowledge
+   > 3. insider-pm-internal-knowledge — unified product knowledge
    > 4. insider-pm-doc-writer — Confluence documentation writer
    > 5. insider-pm-pvd-writer — PVD creator
    > 6. insider-pm-task-writer — Jira task improver
@@ -106,7 +106,7 @@ Based on the description, suggest commands:
 
 ### Question 6: Write Operations
 > "Should this plugin write to any external system?
-> - A) Read-only everywhere (like insider-pm-knowledge-hub)
+> - A) Read-only everywhere (like insider-pm-internal-knowledge)
 > - B) Can write to Confluence with PM approval (like insider-pm-doc-writer)
 > - C) Outputs local files only (like insider-pm-task-writer)
 > - D) Other — describe what it should write to"
@@ -120,13 +120,13 @@ Based on the PM's answers, scan existing Insider plugins and recommend dependenc
 
 | PM describes... | Suggested dependency |
 |---|---|
-| Needs product knowledge, context from Confluence/Jira/codebase/Slack | `insider-pm-knowledge-hub` |
+| Needs product knowledge, context from Confluence/Jira/codebase/Slack | `insider-pm-internal-knowledge` |
 | Needs competitive research or benchmarking | `insider-competitor-intel` |
 | Needs data warehouse context (Snowflake, BigQuery, etc.) | `warehouse-guide` |
 
 Present recommendations:
 > "Based on your description, I recommend these dependencies:
-> - `insider-pm-knowledge-hub` — for gathering context from all internal sources
+> - `insider-pm-internal-knowledge` — for gathering context from all internal sources
 > - [other recommendations...]
 >
 > Does this look right? Add or remove any?"

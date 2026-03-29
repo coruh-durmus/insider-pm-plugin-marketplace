@@ -6,7 +6,7 @@
     "name": "Insider"
   },
   "dependencies": [
-    "insider-pm-knowledge-hub"
+    "insider-pm-internal-knowledge"
   ],
   "keywords": [
     "documentation",
