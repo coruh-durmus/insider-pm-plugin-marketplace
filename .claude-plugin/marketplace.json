@@ -67,6 +67,15 @@
       "author": {
         "name": "Insider"
       }
+    },
+    {
+      "name": "insider-kraken-plugin-installer",
+      "description": "One-command installer that sets up all Insider PM plugins with Kraken team configurations",
+      "source": "./insider-kraken-plugin-installer",
+      "category": "team-installer",
+      "author": {
+        "name": "Kraken"
+      }
     }
   ]
 }

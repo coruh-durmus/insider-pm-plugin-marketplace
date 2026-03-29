@@ -47,9 +47,12 @@ The plugin never accesses Confluence, Jira, Slack, or any other external data so
 Ask the PM:
 > "How would you like to create your plugin?
 > - A) Start from scratch — I'll interview you about what you need
-> - B) Use an existing plugin as a base — tell me which plugin to adapt"
+> - B) Use an existing plugin as a base — tell me which plugin to adapt
+> - C) Create a team installer — set up a one-command installer for your team"
 
 **If A (Scratch):** Proceed to Phase 2.
+
+**If C (Team installer):** Proceed to Phase 1C (Team Installer Flow).
 
 **If B (Adapt existing):**
 1. Read the marketplace directory to find all available plugins
@@ -65,6 +68,24 @@ Ask the PM:
    > Which one would you like to use as a base?"
 3. Read the selected plugin's full structure (plugin.json, SKILL.md, commands, config)
 4. Proceed to Phase 2 with the base plugin as context
+
+## Phase 1C — Team Installer Flow
+
+If the PM wants to create a team installer:
+
+1. Ask: "What is your team name?"
+2. Read the marketplace directory to list all available plugins
+3. For each plugin, ask: "Should this be included in the installer?"
+4. For plugins that need config (doc-writer, pvd-writer, task-writer, etc.), ask the PM for their team's config values
+5. Use `insider-kraken-plugin-installer` as a reference for the structure — read it from the marketplace directory
+6. Generate the installer plugin with:
+   - `plugin.json` with team name in author
+   - A single command: `/install-<team>-plugins`
+   - A skill that installs each selected plugin in dependency order, shows config, and waits for confirmation
+   - README explaining what it installs
+7. Proceed to Phase 6 (Review) and Phase 7 (Publish)
+
+The generated installer should follow the exact same pattern as `insider-kraken-plugin-installer`.
 
 ## Phase 2 — Interview
 
@@ -295,5 +316,7 @@ Then ask about PR:
 - **Marketplace repo:** https://github.com/Corcit/insider-pm-plugin-marketplace
 - **Naming convention.** Default to `insider-pm-*` naming unless the PM specifies otherwise.
 - **No dependencies for this plugin.** This plugin itself has no dependencies — it works out of the box.
+- **Check team installer impact.** When creating a new plugin or improving an existing one, check if any team installers in the marketplace are affected. Team installers (like `insider-kraken-plugin-installer`) hardcode plugin lists and configs. If you add a new plugin, rename one, change its config format, or add required setup steps, flag it:
+  > "This change may affect these team installers: [list]. They may need to be updated to include/reflect this change."
 
 IMPORTANT: The file must start with the YAML frontmatter block (starting with ---). Create necessary directories. Do NOT commit. Report status when done.

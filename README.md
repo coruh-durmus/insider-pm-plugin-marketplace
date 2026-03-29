@@ -14,6 +14,27 @@ Insider team's shared plugin marketplace for Claude Code.
 | [insider-pm-task-writer](./insider-pm-task-writer/) | Productivity | Jira task improver — quality scoring, context gathering, and improved descriptions with user stories and AC |
 | [insider-pm-plugin-creator](./insider-pm-plugin-creator/) | Productivity | Plugin creation tool — guided interview to generate full plugins with skills, commands, and marketplace integration |
 
+## Team Installers
+
+Team installers are one-command plugins that install and configure all PM plugins for a specific team. New team members run a single command to get their entire environment ready.
+
+| Installer | Team | Command |
+|-----------|------|---------|
+| [insider-kraken-plugin-installer](./insider-kraken-plugin-installer/) | Kraken | `/install-kraken-plugins` |
+
+### Creating Your Own Team Installer
+
+Use `/create-plugin` and describe that you want a team installer for your team. Or use `insider-kraken-plugin-installer` as a reference to build your own manually.
+
+### Keeping Team Installers Up to Date
+
+When you add a new plugin to the marketplace or change an existing plugin's configuration, **check if any team installers are affected.** Team installers hardcode plugin lists and configs — they need to be updated when:
+
+- A new plugin is added that teams should install
+- A plugin is renamed or removed
+- A plugin's config format changes
+- A plugin gains new required setup steps
+
 ## Setup
 
 ### 1. Add the marketplace
