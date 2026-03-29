@@ -19,10 +19,8 @@ Insider team's shared plugin marketplace for Claude Code.
 ### 1. Add the marketplace
 
 ```bash
-claude plugin marketplace add <org>/insider-pm-plugin-marketplace
+claude plugin marketplace add Corcit/insider-pm-plugin-marketplace
 ```
-
-Replace `<org>` with the GitHub org or user where this repo is hosted (e.g. `InsiderEng/insider-pm-plugin-marketplace`).
 
 ### 2. Install a plugin
 
