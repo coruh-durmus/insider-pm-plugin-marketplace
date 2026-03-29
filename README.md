@@ -4,9 +4,11 @@ Insider team's shared plugin marketplace for Claude Code.
 
 ## Available Plugins
 
-| Plugin | Description |
-|--------|-------------|
-| [warehouse-guide](./warehouse-guide/) | Expert assistant for building Go integrations with Snowflake, BigQuery, Databricks, and Redshift |
+| Plugin | Category | Description |
+|--------|----------|-------------|
+| [warehouse-guide](./warehouse-guide/) | Development | Expert assistant for building Go integrations with Snowflake, BigQuery, Databricks, and Redshift |
+| [insider-competitor-intel](./insider-competitor-intel/) | Productivity | Competitive intelligence and benchmarking tool for Insider One — covering Braze, MoEngage, Bloomreach, Klaviyo, Hightouch, Census, Salesforce MC, CleverTap, and Iterable |
+| [insider-pm-knowledge-hub](./insider-pm-knowledge-hub/) | Productivity | Unified product knowledge assistant for Insider PMs — searches Confluence, Jira, codebase, Insider Academy, and Slack with Hop validation |
 
 ## Setup
 
