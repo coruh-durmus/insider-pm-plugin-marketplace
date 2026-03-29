@@ -34,6 +34,18 @@ Inside a Claude Code session, run `/reload-plugins` to activate newly installed 
 
 ## Contributing a New Plugin
 
+The easiest way to create a new plugin is to use the **Plugin Creator**:
+
+```
+/create-plugin
+```
+
+This walks you through a guided interview, generates the full plugin structure (plugin.json, commands, skills, config, README), and can open a PR to this marketplace automatically. No technical knowledge required.
+
+### Manual Approach
+
+If you prefer to create a plugin manually:
+
 1. Create a new directory under this repo with your plugin name (e.g. `my-plugin/`).
 2. Add the required structure:
    ```
@@ -48,11 +60,7 @@ Inside a Claude Code session, run `/reload-plugins` to activate newly installed 
    └── README.md               # Document what your plugin does
    ```
 3. Register your plugin in `.claude-plugin/marketplace.json` by adding an entry to the `plugins` array.
-4. Validate your plugin:
-   ```bash
-   claude plugin validate ./my-plugin
-   ```
-5. Open a PR for review.
+4. Open a PR for review.
 
 ## Improving Existing Plugins
 
