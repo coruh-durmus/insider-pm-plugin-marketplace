@@ -153,17 +153,22 @@ We encourage everyone to improve the plugins in this marketplace. If you find a 
 
 The PM or team who created the plugin is responsible for reviewing and approving changes to their plugin. Tag the plugin owner in your PR for review:
 
-| Plugin | Owner |
-|--------|-------|
-| warehouse-guide | Kraken team |
-| insider-competitor-intel | Insider PM team |
-| insider-pm-internal-knowledge | Insider PM team |
-| insider-pm-doc-writer | Insider PM team |
-| insider-pm-pvd-writer | Insider PM team |
-| insider-pm-task-writer | Insider PM team |
-| insider-pm-plugin-creator | Insider PM team |
-| prismatic-guide | Kraken team |
-| insider-kraken-plugin-installer | Kraken team |
+**Insider PM team:**
+| Plugin |
+|--------|
+| insider-competitor-intel |
+| insider-pm-doc-writer |
+| insider-pm-internal-knowledge |
+| insider-pm-plugin-creator |
+| insider-pm-pvd-writer |
+| insider-pm-task-writer |
+
+**Kraken team:**
+| Plugin |
+|--------|
+| insider-kraken-plugin-installer |
+| prismatic-guide |
+| warehouse-guide |
 
 ## Keeping Plugins Up to Date
 
