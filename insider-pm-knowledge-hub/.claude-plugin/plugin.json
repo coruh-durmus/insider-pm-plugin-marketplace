@@ -1,0 +1,17 @@
+{
+  "name": "insider-pm-knowledge-hub",
+  "version": "0.1.0",
+  "description": "Unified product knowledge assistant for Insider PMs — searches Confluence, Jira, codebase, Insider Academy, and Slack to answer product questions with source-cited responses.",
+  "author": {
+    "name": "Insider"
+  },
+  "keywords": [
+    "product-knowledge",
+    "confluence",
+    "jira",
+    "academy",
+    "slack",
+    "insider",
+    "pm"
+  ]
+}
