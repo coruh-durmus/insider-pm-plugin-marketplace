@@ -13,6 +13,15 @@
       "author": {
         "name": "Çoruh"
       }
+    },
+    {
+      "name": "insider-competitor-intel",
+      "description": "Competitive intelligence and benchmarking tool for Insider One — covering Braze, MoEngage, Bloomreach, Klaviyo, Hightouch, Census, Salesforce MC, CleverTap, and Iterable",
+      "source": "./insider-competitor-intel",
+      "category": "productivity",
+      "author": {
+        "name": "Insider"
+      }
     }
   ]
 }
