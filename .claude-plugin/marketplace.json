@@ -31,6 +31,15 @@
       "author": {
         "name": "Insider"
       }
+    },
+    {
+      "name": "insider-pm-doc-writer",
+      "description": "Team-customizable documentation writer for Insider PMs — Confluence docs from Jira, code, Academy, and Slack context",
+      "source": "./insider-pm-doc-writer",
+      "category": "productivity",
+      "author": {
+        "name": "Insider"
+      }
     }
   ]
 }

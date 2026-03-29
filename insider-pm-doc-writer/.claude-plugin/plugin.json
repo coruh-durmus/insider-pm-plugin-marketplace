@@ -1,0 +1,19 @@
+{
+  "name": "insider-pm-doc-writer",
+  "version": "0.1.0",
+  "description": "Team-customizable documentation writer for Insider PMs — generates and publishes product docs in Confluence using context from all company knowledge sources.",
+  "author": {
+    "name": "Insider"
+  },
+  "dependencies": [
+    "insider-pm-knowledge-hub"
+  ],
+  "keywords": [
+    "documentation",
+    "confluence",
+    "product-docs",
+    "insider",
+    "pm",
+    "doc-writer"
+  ]
+}
