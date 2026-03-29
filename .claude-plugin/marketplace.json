@@ -58,6 +58,15 @@
       "author": {
         "name": "Insider"
       }
+    },
+    {
+      "name": "insider-pm-plugin-creator",
+      "description": "Plugin creation tool for Insider PMs — guided interview to generate full plugins with skills, commands, and marketplace integration",
+      "source": "./insider-pm-plugin-creator",
+      "category": "productivity",
+      "author": {
+        "name": "Insider"
+      }
     }
   ]
 }

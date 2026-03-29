@@ -12,6 +12,7 @@ Insider team's shared plugin marketplace for Claude Code.
 | [insider-pm-doc-writer](./insider-pm-doc-writer/) | Productivity | Team-customizable documentation writer for Insider PMs — generates and publishes Confluence docs using context from all knowledge sources |
 | [insider-pm-pvd-writer](./insider-pm-pvd-writer/) | Productivity | PVD creator for Insider PMs — competitive research, cross-team alignment, and full knowledge source context |
 | [insider-pm-task-writer](./insider-pm-task-writer/) | Productivity | Jira task improver — quality scoring, context gathering, and improved descriptions with user stories and AC |
+| [insider-pm-plugin-creator](./insider-pm-plugin-creator/) | Productivity | Plugin creation tool — guided interview to generate full plugins with skills, commands, and marketplace integration |
 
 ## Setup
 
