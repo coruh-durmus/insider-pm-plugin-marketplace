@@ -28,7 +28,7 @@ claude plugin install insider-pm-task-writer@insider-pm-plugin-marketplace
 /setup-task-writer
 ```
 
-The wizard will ask for your team name and any team-specific sources (e.g., Shopify MCP, warehouse-guide).
+The wizard will verify your knowledge hub is configured. Additional data sources (e.g., Shopify MCP, warehouse-guide) are configured centrally in the knowledge hub via `/setup-knowledge-hub` — this plugin inherits them automatically.
 
 ## Commands
 
@@ -63,12 +63,7 @@ Default threshold: **7/10**. Tasks scoring below this are flagged for improvemen
 
 ## Additional Sources
 
-During setup, you can configure team-specific sources that the plugin uses based on keyword matching. For example:
-
-- **warehouse-guide** — triggered by keywords: snowflake, bigquery, databricks, redshift
-- **Shopify MCP** — triggered by keywords: shopify, shopify webhook
-
-If you need a source that doesn't exist yet, create your own plugin or configure an MCP server for it.
+Additional data sources (e.g., warehouse-guide, Shopify MCP) are configured centrally in the knowledge hub via `/setup-knowledge-hub`. This plugin inherits them automatically through keyword-based routing. To add or change additional sources, run `/setup-knowledge-hub`.
 
 ## Output
 

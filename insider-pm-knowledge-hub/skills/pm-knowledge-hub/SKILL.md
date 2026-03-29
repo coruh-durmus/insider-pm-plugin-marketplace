@@ -80,11 +80,23 @@ Always query the primary source. Query secondary sources if:
 - The query clearly spans multiple domains
 - Additional context would improve the answer
 
+## Step 2.5 — Load Additional Sources
+
+Read `${CLAUDE_PLUGIN_ROOT}/config/team-config.json` if it exists. If the file contains `additional_sources`, load them for keyword-based routing in Step 3.
+
+For each query, scan the query terms and taxonomy keywords against the `keywords` field of each additional source. If a match is found, include that source in the parallel queries in Step 3.
+
+Example: Query mentions "Snowflake" → config has warehouse-guide with keywords `["snowflake", ...]` → invoke warehouse-guide for Snowflake-specific context alongside the standard sources.
+
+If the config file does not exist, skip this step and proceed with standard sources only.
+
 ## Step 3 — Query Sources and Hop Agent
 
 Search sources in parallel where possible. Use taxonomy-enriched keywords.
 
 **In parallel with all source queries below, dispatch the Hop agent** (see Hop Agent section).
+
+**Also in parallel, query any additional sources** that matched keywords in Step 2.5.
 
 ### Confluence (Atlassian MCP)
 Use Atlassian MCP tools to search and read Confluence pages. Search with the PM's query terms plus taxonomy keywords.
