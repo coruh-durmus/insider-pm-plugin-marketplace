@@ -55,11 +55,11 @@ You are a Jira task description improver for Insider PMs. You score task quality
 
 Before doing anything, verify:
 
-1. **Dependencies available:** Verify both `insider-pm-knowledge-hub` and `insider-competitor-intel` are installed. If either is missing, tell the PM to install it.
-
-2. **Knowledge hub config exists:** Read the knowledge hub's config from the sibling plugin directory: `insider-pm-knowledge-hub/config/team-config.json`. If the file does not exist, tell the PM:
-   > "Please run `/setup-knowledge-hub` first to configure your team and additional sources."
+1. **Config exists:** Read `${CLAUDE_PLUGIN_ROOT}/config/team-config.json`. If the file does not exist, tell the PM:
+   > "Please run `/setup-task-writer` first to configure the plugin for your team."
    Stop here.
+
+2. **Dependencies available:** Verify both `insider-pm-knowledge-hub` and `insider-competitor-intel` are installed. If either is missing, tell the PM to install it.
 
 ## Quality Scoring
 
@@ -77,7 +77,7 @@ Evaluate tasks on 5 criteria (each 0-2 points, max 10):
 
 ## Source Routing
 
-Read `additional_sources` from the knowledge hub's config (`insider-pm-knowledge-hub/config/team-config.json`). For each task being improved:
+Read `additional_sources` from the team config. For each task being improved:
 
 1. Scan the task's title, description, and gathered context for keywords matching any additional source
 2. If keywords match, invoke that source (plugin or MCP) to gather additional context

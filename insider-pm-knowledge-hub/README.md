@@ -16,21 +16,10 @@ Web access (WebSearch/WebFetch) is needed for Insider Academy queries.
 
 Every query is also sent to **@hop** (Insider's internal Q&A bot in Slack) in parallel. Hop's response is used as a validation layer — confirming, supplementing, or flagging discrepancies against the main answer. This gives PMs a cross-referenced result.
 
-## Getting Started
-
-After installing the plugin, run the setup wizard to configure your team and additional sources:
-
-```
-/setup-knowledge-hub
-```
-
-The wizard will ask for your team name and any team-specific sources (e.g., Shopify MCP, warehouse-guide). These additional sources become available to all plugins that depend on the knowledge hub.
-
 ## Commands
 
 | Command | Description | Primary Source |
 |---|---|---|
-| `/setup-knowledge-hub` | Configure team name and additional sources | — |
 | `/product-search <query>` | General product question | All sources |
 | `/find-spec <query>` | Find specs, PRDs, docs | Confluence |
 | `/academy-learn <query>` | How-to guides, learning | Academy |
@@ -65,14 +54,3 @@ The plugin understands these Insider product areas:
 | Slack | All channels and DMs | **Only DMs to @hop** |
 
 The plugin never sends messages to any Slack channel or DM other than @hop.
-
-## Additional Sources
-
-After running `/setup-knowledge-hub`, you can configure team-specific sources that the knowledge hub uses based on keyword matching. For example:
-
-- **warehouse-guide** — triggered by keywords: snowflake, bigquery, databricks, redshift
-- **Shopify MCP** — triggered by keywords: shopify, shopify webhook
-
-These sources are shared with all plugins that depend on the knowledge hub (doc-writer, pvd-writer, task-writer), so you only configure them once.
-
-See `config/team-config.json.example` for the expected format.
