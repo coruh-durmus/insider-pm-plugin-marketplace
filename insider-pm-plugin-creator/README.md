@@ -23,6 +23,7 @@ Then run:
 | Command | Description |
 |---|---|
 | `/create-plugin` | Create a new plugin through a guided interview |
+| `/create-team-installer` | Create a team installer that installs and configures all plugins for your team |
 
 ## How It Works
 

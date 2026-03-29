@@ -24,7 +24,7 @@ Team installers are one-command plugins that install and configure all PM plugin
 
 ### Creating Your Own Team Installer
 
-Use `/create-plugin` and describe that you want a team installer for your team. Or use `insider-kraken-plugin-installer` as a reference to build your own manually.
+Run `/create-team-installer` and follow the guided setup. It will ask you which plugins to include and what configs your team needs, then generate and publish the installer automatically.
 
 ### Keeping Team Installers Up to Date
 
@@ -35,23 +35,57 @@ When you add a new plugin to the marketplace or change an existing plugin's conf
 - A plugin's config format changes
 - A plugin gains new required setup steps
 
-## Setup
+## Getting Started
 
-### 1. Add the marketplace
+### If your team already has an installer
 
-```bash
-claude plugin marketplace add Corcit/insider-pm-plugin-marketplace
-```
-
-### 2. Install a plugin
+Check the [Team Installers](#team-installers) table above. If your team is listed, run these 4 commands:
 
 ```bash
-claude plugin install warehouse-guide@insider-pm-plugin-marketplace
+/plugin marketplace add Corcit/insider-pm-plugin-marketplace
+/plugin install <your-team-installer>@insider-pm-plugin-marketplace
+/reload-plugins
+/<your-install-command>
 ```
 
-### 3. Reload plugins
+For example, Kraken team members run:
+```bash
+/plugin marketplace add Corcit/insider-pm-plugin-marketplace
+/plugin install insider-kraken-plugin-installer@insider-pm-plugin-marketplace
+/reload-plugins
+/install-kraken-plugins
+```
 
-Inside a Claude Code session, run `/reload-plugins` to activate newly installed plugins.
+That's it — all plugins installed and configured in one go.
+
+### If your team doesn't have an installer yet
+
+1. Add the marketplace:
+   ```bash
+   /plugin marketplace add Corcit/insider-pm-plugin-marketplace
+   ```
+
+2. Install the plugin creator:
+   ```bash
+   /plugin install insider-pm-plugin-creator@insider-pm-plugin-marketplace
+   /reload-plugins
+   ```
+
+3. Create your team's installer:
+   ```
+   /create-team-installer
+   ```
+
+   This walks you through selecting plugins and configuring them for your team. Once done, share the install commands with your team.
+
+### Installing individual plugins
+
+You can also install plugins one by one:
+
+```bash
+/plugin install <plugin-name>@insider-pm-plugin-marketplace
+/reload-plugins
+```
 
 ## Contributing a New Plugin
 
