@@ -1,0 +1,60 @@
+# insider-pm-plugin-marketplace
+
+Insider team's shared plugin marketplace for Claude Code.
+
+## Available Plugins
+
+| Plugin | Description |
+|--------|-------------|
+| [warehouse-guide](./warehouse-guide/) | Expert assistant for building Go integrations with Snowflake, BigQuery, Databricks, and Redshift |
+
+## Setup
+
+### 1. Add the marketplace
+
+```bash
+claude plugin marketplace add <org>/insider-pm-plugin-marketplace
+```
+
+Replace `<org>` with the GitHub org or user where this repo is hosted (e.g. `InsiderEng/insider-pm-plugin-marketplace`).
+
+### 2. Install a plugin
+
+```bash
+claude plugin install warehouse-guide@insider-pm-plugin-marketplace
+```
+
+### 3. Reload plugins
+
+Inside a Claude Code session, run `/reload-plugins` to activate newly installed plugins.
+
+## Contributing a New Plugin
+
+1. Create a new directory under this repo with your plugin name (e.g. `my-plugin/`).
+2. Add the required structure:
+   ```
+   my-plugin/
+   ├── .claude-plugin/
+   │   └── plugin.json        # Plugin manifest (name, version, description)
+   ├── commands/               # Slash commands (optional)
+   │   └── my-command.md
+   ├── skills/                 # Skills (optional)
+   │   └── my-skill/
+   │       └── SKILL.md
+   └── README.md               # Document what your plugin does
+   ```
+3. Register your plugin in `.claude-plugin/marketplace.json` by adding an entry to the `plugins` array.
+4. Validate your plugin:
+   ```bash
+   claude plugin validate ./my-plugin
+   ```
+5. Open a PR for review.
+
+## Updating Plugins
+
+After pulling new changes or when plugins are updated upstream:
+
+```bash
+claude plugin marketplace update insider-pm-plugin-marketplace
+claude plugin update <plugin-name>@insider-pm-plugin-marketplace
+```

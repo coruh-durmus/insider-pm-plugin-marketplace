@@ -1,0 +1,18 @@
+{
+  "name": "insider-pm-plugin-marketplace",
+  "description": "Insider team's shared plugin marketplace for Claude Code",
+  "owner": {
+    "name": "Insider"
+  },
+  "plugins": [
+    {
+      "name": "warehouse-guide",
+      "description": "Expert assistant for building Go integrations with Snowflake, BigQuery, Databricks, and Amazon Redshift",
+      "source": "./warehouse-guide",
+      "category": "development",
+      "author": {
+        "name": "Çoruh"
+      }
+    }
+  ]
+}

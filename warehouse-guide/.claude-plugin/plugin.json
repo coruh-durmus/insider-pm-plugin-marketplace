@@ -1,0 +1,9 @@
+{
+  "name": "warehouse-guide",
+  "version": "0.1.0",
+  "description": "Expert assistant for building Go integrations with Snowflake, BigQuery, Databricks, and Amazon Redshift. Helps teams explain features, write integration code, troubleshoot errors, and research platform capabilities.",
+  "author": {
+    "name": "Çoruh"
+  },
+  "keywords": ["snowflake", "bigquery", "databricks", "redshift", "data-platform", "integrations", "go"]
+}
