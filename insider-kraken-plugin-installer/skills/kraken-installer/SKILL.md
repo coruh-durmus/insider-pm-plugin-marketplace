@@ -25,11 +25,13 @@ You install and configure all Insider PM plugins for the Kraken team. You instal
 
 First, check if the Insider PM marketplace is already added. If the PM can install plugins from it, proceed. If not, guide them:
 
-> "Before we start, let's make sure the Insider marketplace is set up. Please run:
-> ```
-> /plugin marketplace add Corcit/insider-pm-plugin-marketplace
-> ```
-> Then come back and run `/install-kraken-plugins` again."
+> "Before we start, let's make sure the Insider marketplace is set up:
+>
+> 1. Run `/plugin marketplace add Corcit/insider-pm-plugin-marketplace`
+> 2. Then run `/plugin` and select the **insider-pm-plugin-marketplace**
+> 3. Select **Enable auto-update** — this keeps all your plugins up to date automatically when the marketplace is updated
+>
+> Once done, come back and run `/install-kraken-plugins` again."
 
 Wait for confirmation before proceeding.
 
@@ -230,12 +232,10 @@ After all plugins are installed, show a summary:
 >
 > Run `/reload-plugins` to activate all plugins.
 >
-> **Keeping plugins up to date:** When the marketplace is updated with new plugins or improvements, run:
-> ```
-> /plugin marketplace update insider-pm-plugin-marketplace
-> /reload-plugins
-> ```
-> This pulls the latest versions of all plugins."
+> **Keeping plugins up to date:** If you enabled auto-update during setup, your plugins will stay up to date automatically. If not, you can enable it anytime:
+> 1. Run `/plugin`
+> 2. Select **insider-pm-plugin-marketplace**
+> 3. Select **Enable auto-update**"
 
 ## Important Rules
 

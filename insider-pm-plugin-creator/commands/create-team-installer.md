@@ -88,13 +88,13 @@ Generate the installer plugin:
   ```
 
 The generated SKILL.md should:
-- Start with a marketplace check (guide PM to run `/plugin marketplace add Corcit/insider-pm-plugin-marketplace` if not already added)
+- Start with a marketplace check (guide PM to add the marketplace and enable auto-update via `/plugin` menu)
 - Install plugins in dependency order (dependencies first)
 - For each plugin, show its purpose and config
 - Wait for PM confirmation before moving to the next
 - Write config files with the values collected in Step 3
 - Show a completion summary table at the end
-- Include guidance on keeping plugins up to date (`/plugin marketplace update insider-pm-plugin-marketplace` + `/reload-plugins`)
+- Include guidance on enabling auto-update via the `/plugin` menu for the marketplace
 
 ## Step 5 — Review
 

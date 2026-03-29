@@ -51,12 +51,17 @@ Check the [Team Installers](#team-installers) table above. If your team is liste
 For example, Kraken team members run:
 ```bash
 /plugin marketplace add Corcit/insider-pm-plugin-marketplace
+```
+Then run `/plugin`, select **insider-pm-plugin-marketplace**, and select **Enable auto-update**.
+
+Then install and run:
+```bash
 /plugin install insider-kraken-plugin-installer@insider-pm-plugin-marketplace
 /reload-plugins
 /install-kraken-plugins
 ```
 
-That's it — all plugins installed and configured in one go.
+That's it — all plugins installed, configured, and auto-updating.
 
 ### If your team doesn't have an installer yet
 
@@ -158,20 +163,19 @@ The PM or team who created the plugin is responsible for reviewing and approving
 | insider-pm-task-writer | Insider PM team |
 | insider-pm-plugin-creator | Insider PM team |
 
-## Updating Plugins
+## Keeping Plugins Up to Date
 
-When the marketplace is updated with new plugins or improvements, pull the latest:
+Enable auto-update so your plugins stay current automatically:
+
+1. Run `/plugin`
+2. Select **insider-pm-plugin-marketplace**
+3. Select **Enable auto-update**
+
+That's it — whenever the marketplace is updated with new plugins or improvements, your installed plugins will update automatically.
+
+If you prefer manual updates:
 
 ```bash
 /plugin marketplace update insider-pm-plugin-marketplace
-/reload-plugins
-```
-
-This updates all installed plugins to their latest versions. Run this periodically or when you hear about new features.
-
-To update a specific plugin:
-
-```bash
-/plugin update <plugin-name>@insider-pm-plugin-marketplace
 /reload-plugins
 ```
