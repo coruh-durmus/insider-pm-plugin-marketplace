@@ -56,6 +56,47 @@ Inside a Claude Code session, run `/reload-plugins` to activate newly installed 
    ```
 5. Open a PR for review.
 
+## Improving Existing Plugins
+
+We encourage everyone to improve the plugins in this marketplace. If you find a bug, want to add a feature, or see a way to make a plugin better — open a PR.
+
+### How to Submit an Improvement
+
+1. Clone the repo and create a feature branch:
+   ```bash
+   git clone https://github.com/Corcit/insider-pm-plugin-marketplace.git
+   cd insider-pm-plugin-marketplace
+   git checkout -b fix/<plugin-name>-<short-description>
+   ```
+2. Make your changes to the plugin files.
+3. Open a PR with the following information:
+   - **Which plugin** you're improving
+   - **What changed** — summary of the improvement
+   - **Why** — what problem it solves or what it makes better
+   - **Testing** — how you verified the change works
+
+### Guidelines
+
+- **Don't break existing commands.** If a plugin has `/write-docs`, it should still work the same way after your change. Additive changes are preferred over breaking changes.
+- **Update the plugin's README** if your change affects behavior, commands, or setup flow.
+- **Keep the plugin's conventions.** Read the existing code and follow the same patterns (frontmatter format, section naming, tone).
+- **One plugin per PR.** If you're improving multiple plugins, open separate PRs for each.
+- **Bump the version** in `plugin.json` if your change is significant (e.g., `0.1.0` → `0.2.0` for new features, `0.1.0` → `0.1.1` for fixes).
+
+### Review & Approval
+
+The PM or team who created the plugin is responsible for reviewing and approving changes to their plugin. Tag the plugin owner in your PR for review:
+
+| Plugin | Owner |
+|--------|-------|
+| warehouse-guide | @Corcit |
+| insider-competitor-intel | Insider PM team |
+| insider-pm-knowledge-hub | Insider PM team |
+| insider-pm-doc-writer | Insider PM team |
+| insider-pm-pvd-writer | Insider PM team |
+| insider-pm-task-writer | Insider PM team |
+| insider-pm-plugin-creator | Insider PM team |
+
 ## Updating Plugins
 
 After pulling new changes or when plugins are updated upstream:
