@@ -1,0 +1,15 @@
+{
+  "team_name": "YourTeamName",
+  "additional_sources": [
+    {
+      "name": "warehouse-guide",
+      "type": "plugin",
+      "keywords": ["snowflake", "bigquery", "databricks", "redshift", "data warehouse"]
+    },
+    {
+      "name": "shopify",
+      "type": "mcp",
+      "keywords": ["shopify", "shopify webhook", "shopify integration"]
+    }
+  ]
+}

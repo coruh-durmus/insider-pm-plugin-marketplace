@@ -49,6 +49,15 @@
       "author": {
         "name": "Insider"
       }
+    },
+    {
+      "name": "insider-pm-task-writer",
+      "description": "Jira task improver for Insider PMs — quality scoring, context gathering, and improved descriptions with user stories and AC",
+      "source": "./insider-pm-task-writer",
+      "category": "productivity",
+      "author": {
+        "name": "Insider"
+      }
     }
   ]
 }

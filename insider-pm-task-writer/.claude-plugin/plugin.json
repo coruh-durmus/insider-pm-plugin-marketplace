@@ -1,0 +1,21 @@
+{
+  "name": "insider-pm-task-writer",
+  "version": "0.1.0",
+  "description": "Jira task description improver for Insider PMs — scores task quality, gathers context from all knowledge sources, and generates improved descriptions with user stories and acceptance criteria.",
+  "author": {
+    "name": "Insider"
+  },
+  "dependencies": [
+    "insider-pm-knowledge-hub",
+    "insider-competitor-intel"
+  ],
+  "keywords": [
+    "jira",
+    "task",
+    "user-story",
+    "acceptance-criteria",
+    "backlog",
+    "insider",
+    "pm"
+  ]
+}
