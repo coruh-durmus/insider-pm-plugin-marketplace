@@ -1,0 +1,9 @@
+{
+  "name": "prismatic-guide",
+  "version": "0.1.0",
+  "description": "Expert assistant for building embedded iPaaS integrations with Prismatic.io. Helps teams explain features, write custom components and code-native integrations, troubleshoot errors, and research platform capabilities.",
+  "author": {
+    "name": "Insider"
+  },
+  "keywords": ["prismatic", "ipaas", "embedded-integrations", "custom-components", "connectors", "typescript"]
+}
