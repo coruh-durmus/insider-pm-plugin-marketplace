@@ -35,7 +35,12 @@ Ask: "What is the Confluence space key where your product docs live? (e.g., KRAK
 
 Store the answer as `confluence_space`.
 
-Ask: "What is the parent page URL or ID under which your docs are organized?"
+Ask:
+> "What is the parent page ID under which your docs are organized? (e.g., the page ID of 'External Integrations', not the team name)
+>
+> **How to find your page ID:** You can go to your parent Confluence page and ask Rovo for the page ID of your parent page."
+
+The PM can provide either a page ID (numeric) or a page URL. If a URL is provided, extract the page ID from it.
 
 Store the answer as `confluence_parent_page_id`.
 
