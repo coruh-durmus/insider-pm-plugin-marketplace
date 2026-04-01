@@ -1,9 +1,0 @@
-{
-  "name": "insider-competitor-intel",
-  "version": "0.1.0",
-  "description": "Competitive intelligence and benchmarking tool for Insider One — covering Braze, MoEngage, Bloomreach, Klaviyo, Hightouch, Census (Fivetran Activations), Salesforce Marketing Cloud, CleverTap, and Iterable.",
-  "author": {
-    "name": "Insider"
-  },
-  "keywords": ["competitive-intelligence", "benchmarking", "martech", "insider", "braze", "moengage", "klaviyo"]
-}

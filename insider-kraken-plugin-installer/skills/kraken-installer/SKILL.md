@@ -19,7 +19,7 @@ version: 0.1.0
 
 # Kraken Team Plugin Installer
 
-You install and configure all Insider PM plugins for the Kraken team. You install plugins in dependency order, show the pre-configured settings for each, and wait for PM confirmation before proceeding to the next.
+You install and configure all Insider PM plugins for the Kraken team. You install plugins in order, show the pre-configured settings for each, and wait for PM confirmation before proceeding to the next.
 
 ## Step 0 — Marketplace Check
 
@@ -37,39 +37,86 @@ Wait for confirmation before proceeding.
 
 ## Installation Order
 
-Install plugins in this order (dependencies first):
+Install plugins in this order:
 
-### 1. insider-pm-internal-knowledge (no config needed)
+### 1. insider-pm-copilot (Kraken config)
 
 Install:
 ```bash
-claude plugin install insider-pm-internal-knowledge@insider-pm-plugin-marketplace
+claude plugin install insider-pm-copilot@insider-pm-plugin-marketplace
+```
+
+Show the Kraken config:
+> "Installed **insider-pm-copilot** — all-in-one PM copilot with internal knowledge, competitive intelligence, task improvement, doc writing, and PVD creation.
+>
+> I'll configure it with these Kraken settings:
+> - **Team:** Kraken
+> - **Docs — Confluence Space:** ProductKB
+> - **Docs — Parent Page ID:** 3481600323
+> - **Docs — Jira Projects:** SD
+> - **Docs — Trigger:** Manual only
+> - **Docs — Review:** Always approve
+> - **PVD — Parent Page ID:** 4087152775
+> - **Tasks — Additional Sources:**
+>   - warehouse-guide (keywords: snowflake, bigquery, databricks, redshift, data warehouse)
+>   - Shopify MCP (keywords: shopify, shopify webhook, shopify integration)
+>   - prismatic-guide (keywords: prismatic, ipaas, embedded integration, custom component, connector, prismatic.io)
+>
+> Apply this configuration?"
+
+If confirmed, write to the plugin's config directory `insider-pm-copilot/config/team-config.json`:
+
+```json
+{
+  "team_name": "Kraken",
+  "docs": {
+    "confluence_space": "ProductKB",
+    "confluence_parent_page_id": "3481600323",
+    "jira_projects": ["SD"],
+    "trigger": {
+      "mode": "manual_only",
+      "auto_jira_status": null
+    },
+    "review": "always_approve"
+  },
+  "pvd": {
+    "pvd_parent_page_id": "4087152775"
+  },
+  "tasks": {
+    "additional_sources": [
+      {
+        "name": "warehouse-guide",
+        "type": "plugin",
+        "keywords": ["snowflake", "bigquery", "databricks", "redshift", "data warehouse"]
+      },
+      {
+        "name": "shopify",
+        "type": "mcp",
+        "keywords": ["shopify", "shopify webhook", "shopify integration"]
+      },
+      {
+        "name": "prismatic-guide",
+        "type": "plugin",
+        "keywords": ["prismatic", "ipaas", "embedded integration", "custom component", "connector", "prismatic.io"]
+      }
+    ]
+  }
+}
 ```
 
 Tell the PM:
-> "Installed **insider-pm-internal-knowledge** — unified product knowledge assistant. Searches Confluence, Jira, codebase, Academy, Slack, and Hop.
-> No configuration needed. Ready to use with `/product-search`, `/find-spec`, `/academy-learn`, `/ticket-context`, `/code-insight`.
+> "Configured. Available commands:
+> - `/product-search`, `/find-spec`, `/academy-learn`, `/ticket-context`, `/code-insight` — Knowledge search
+> - `/benchmark`, `/competitive-brief`, `/feature-compare`, `/release-tracker` — Competitive intel
+> - `/improve-task`, `/improve-backlog` — Task improvement
+> - `/write-docs` — Documentation
+> - `/create-pvd` — PVD creation
 >
 > Continue to the next plugin?"
 
 Wait for confirmation.
 
-### 2. insider-competitor-intel (no config needed)
-
-Install:
-```bash
-claude plugin install insider-competitor-intel@insider-pm-plugin-marketplace
-```
-
-Tell the PM:
-> "Installed **insider-competitor-intel** — competitive intelligence and benchmarking.
-> No configuration needed. Ready to use with `/competitive-brief`, `/benchmark`, `/feature-compare`, `/release-tracker`.
->
-> Continue to the next plugin?"
-
-Wait for confirmation.
-
-### 3. warehouse-guide (no config needed)
+### 2. warehouse-guide (no config needed)
 
 Install:
 ```bash
@@ -84,124 +131,22 @@ Tell the PM:
 
 Wait for confirmation.
 
-### 4. insider-pm-doc-writer (Kraken config)
+### 3. prismatic-guide (no config needed)
 
 Install:
 ```bash
-claude plugin install insider-pm-doc-writer@insider-pm-plugin-marketplace
+claude plugin install prismatic-guide@insider-pm-plugin-marketplace
 ```
 
-Show the Kraken config:
-> "Installed **insider-pm-doc-writer** — Confluence documentation writer.
+Tell the PM:
+> "Installed **prismatic-guide** — expert assistant for Prismatic.io platform and integrations.
+> No configuration needed.
 >
-> I'll configure it with these Kraken settings:
-> - **Team:** Kraken
-> - **Confluence Space:** ProductKB
-> - **Parent Page ID:** 3481600323
-> - **Jira Projects:** SD
-> - **Trigger:** Manual only
-> - **Review:** Always approve
->
-> Apply this configuration?"
-
-If confirmed, write to the plugin's config directory `insider-pm-doc-writer/config/team-config.json`:
-
-```json
-{
-  "team_name": "Kraken",
-  "confluence_space": "ProductKB",
-  "confluence_parent_page_id": "3481600323",
-  "jira_projects": ["SD"],
-  "trigger": {
-    "mode": "manual_only",
-    "auto_jira_status": null
-  },
-  "review": "always_approve"
-}
-```
-
-Tell the PM: "Configured. Use `/write-docs` to create or update documentation. Continue to the next plugin?"
+> Continue to the next plugin?"
 
 Wait for confirmation.
 
-### 5. insider-pm-pvd-writer (Kraken config)
-
-Install:
-```bash
-claude plugin install insider-pm-pvd-writer@insider-pm-plugin-marketplace
-```
-
-Show the Kraken config:
-> "Installed **insider-pm-pvd-writer** — Product Value Document creator.
->
-> I'll configure it with these Kraken settings:
-> - **Team:** Kraken
-> - **PVD Parent Page ID:** 4087152775
->
-> Apply this configuration?"
-
-If confirmed, write to the plugin's config directory `insider-pm-pvd-writer/config/team-config.json`:
-
-```json
-{
-  "team_name": "Kraken",
-  "pvd_parent_page_id": "4087152775"
-}
-```
-
-Tell the PM: "Configured. Use `/create-pvd` to create Product Value Documents. Continue to the next plugin?"
-
-Wait for confirmation.
-
-### 6. insider-pm-task-writer (Kraken config)
-
-Install:
-```bash
-claude plugin install insider-pm-task-writer@insider-pm-plugin-marketplace
-```
-
-Show the Kraken config:
-> "Installed **insider-pm-task-writer** — Jira task description improver.
->
-> I'll configure it with these Kraken settings:
-> - **Team:** Kraken
-> - **Additional Sources:**
->   - warehouse-guide (keywords: snowflake, bigquery, databricks, redshift, data warehouse)
->   - Shopify MCP (keywords: shopify, shopify webhook, shopify integration)
->   - prismatic-guide (keywords: prismatic, ipaas, embedded integration, custom component, connector, prismatic.io)
->
-> Apply this configuration?"
-
-If confirmed, write to the plugin's config directory `insider-pm-task-writer/config/team-config.json`:
-
-```json
-{
-  "team_name": "Kraken",
-  "additional_sources": [
-    {
-      "name": "warehouse-guide",
-      "type": "plugin",
-      "keywords": ["snowflake", "bigquery", "databricks", "redshift", "data warehouse"]
-    },
-    {
-      "name": "shopify",
-      "type": "mcp",
-      "keywords": ["shopify", "shopify webhook", "shopify integration"]
-    },
-    {
-      "name": "prismatic-guide",
-      "type": "plugin",
-      "keywords": ["prismatic", "ipaas", "embedded integration", "custom component", "connector", "prismatic.io"]
-    }
-  ]
-}
-```
-
-Tell the PM: "Configured. Use `/improve-task` or `/improve-backlog` to improve task descriptions. Continue to the next plugin?"
-
-Wait for confirmation.
-
-### 7. insider-pm-plugin-creator (no config needed)
+### 4. insider-pm-plugin-creator (no config needed)
 
 Install:
 ```bash
@@ -222,12 +167,9 @@ After all plugins are installed, show a summary:
 >
 > | Plugin | Status | Config |
 > |--------|--------|--------|
-> | insider-pm-internal-knowledge | Installed | No config needed |
-> | insider-competitor-intel | Installed | No config needed |
+> | insider-pm-copilot | Installed + Configured | Knowledge, Intel, Docs, PVD, Tasks |
 > | warehouse-guide | Installed | No config needed |
-> | insider-pm-doc-writer | Installed + Configured | ProductKB / SD |
-> | insider-pm-pvd-writer | Installed + Configured | PVD page 4087152775 |
-> | insider-pm-task-writer | Installed + Configured | warehouse-guide, Shopify, prismatic |
+> | prismatic-guide | Installed | No config needed |
 > | insider-pm-plugin-creator | Installed | No config needed |
 >
 > Run `/reload-plugins` to activate all plugins.
@@ -239,9 +181,9 @@ After all plugins are installed, show a summary:
 
 ## Important Rules
 
-- **Install in order.** Dependencies must be installed before dependent plugins.
+- **Install in order.** The copilot plugin must be installed first (it's the foundation).
 - **Confirm each.** Show config and wait for PM confirmation before proceeding.
-- **Pre-configured.** All configs are hardcoded for Kraken. PMs can re-run individual setup wizards later to customize.
+- **Pre-configured.** All configs are hardcoded for Kraken. PMs can re-run `/setup` later to customize.
 - **Idempotent.** If a plugin is already installed, skip the install step and just verify/update the config.
 
 Create necessary directories. Do NOT commit. Report status when done.

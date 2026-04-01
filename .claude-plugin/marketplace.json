@@ -15,45 +15,9 @@
       }
     },
     {
-      "name": "insider-competitor-intel",
-      "description": "Competitive intelligence and benchmarking tool for Insider One — covering Braze, MoEngage, Bloomreach, Klaviyo, Hightouch, Census, Salesforce MC, CleverTap, and Iterable",
-      "source": "./insider-competitor-intel",
-      "category": "productivity",
-      "author": {
-        "name": "Insider"
-      }
-    },
-    {
-      "name": "insider-pm-internal-knowledge",
-      "description": "Unified product knowledge assistant for Insider PMs — Confluence, Jira, codebase, Academy, and Slack",
-      "source": "./insider-pm-internal-knowledge",
-      "category": "productivity",
-      "author": {
-        "name": "Insider"
-      }
-    },
-    {
-      "name": "insider-pm-doc-writer",
-      "description": "Team-customizable documentation writer for Insider PMs — Confluence docs from Jira, code, Academy, and Slack context",
-      "source": "./insider-pm-doc-writer",
-      "category": "productivity",
-      "author": {
-        "name": "Insider"
-      }
-    },
-    {
-      "name": "insider-pm-pvd-writer",
-      "description": "PVD creator for Insider PMs — competitive research, cross-team alignment, and full knowledge source context",
-      "source": "./insider-pm-pvd-writer",
-      "category": "productivity",
-      "author": {
-        "name": "Insider"
-      }
-    },
-    {
-      "name": "insider-pm-task-writer",
-      "description": "Jira task improver for Insider PMs — quality scoring, context gathering, and improved descriptions with user stories and AC",
-      "source": "./insider-pm-task-writer",
+      "name": "insider-pm-copilot",
+      "description": "All-in-one PM copilot for Insider — internal knowledge, competitive intelligence, task improvement, doc writing, and PVD creation",
+      "source": "./insider-pm-copilot",
       "category": "productivity",
       "author": {
         "name": "Insider"

@@ -7,11 +7,7 @@ Insider team's shared plugin marketplace for Claude Code.
 | Plugin | Category | Description |
 |--------|----------|-------------|
 | [warehouse-guide](./warehouse-guide/) | Development | Expert assistant for building Go integrations with Snowflake, BigQuery, Databricks, and Redshift |
-| [insider-competitor-intel](./insider-competitor-intel/) | Productivity | Competitive intelligence and benchmarking tool for Insider One — covering Braze, MoEngage, Bloomreach, Klaviyo, Hightouch, Census, Salesforce MC, CleverTap, and Iterable |
-| [insider-pm-internal-knowledge](./insider-pm-internal-knowledge/) | Productivity | Unified product knowledge assistant for Insider PMs — searches Confluence, Jira, codebase, Insider Academy, and Slack with Hop validation |
-| [insider-pm-doc-writer](./insider-pm-doc-writer/) | Productivity | Team-customizable documentation writer for Insider PMs — generates and publishes Confluence docs using context from all knowledge sources |
-| [insider-pm-pvd-writer](./insider-pm-pvd-writer/) | Productivity | PVD creator for Insider PMs — competitive research, cross-team alignment, and full knowledge source context |
-| [insider-pm-task-writer](./insider-pm-task-writer/) | Productivity | Jira task improver — quality scoring, context gathering, and improved descriptions with user stories and AC |
+| [insider-pm-copilot](./insider-pm-copilot/) | Productivity | All-in-one PM copilot — internal knowledge, competitive intelligence, task improvement, doc writing, and PVD creation |
 | [insider-pm-plugin-creator](./insider-pm-plugin-creator/) | Productivity | Plugin creation tool — guided interview to generate full plugins with skills, commands, and marketplace integration |
 
 ## Team Installers
@@ -155,13 +151,9 @@ The PM or team who created the plugin is responsible for reviewing and approving
 
 | Plugin | Owner |
 |--------|-------|
-| insider-competitor-intel | Insider PM team |
+| insider-pm-copilot | Insider PM team |
 | insider-kraken-plugin-installer | Kraken team |
-| insider-pm-doc-writer | Insider PM team |
-| insider-pm-internal-knowledge | Insider PM team |
 | insider-pm-plugin-creator | Insider PM team |
-| insider-pm-pvd-writer | Insider PM team |
-| insider-pm-task-writer | Insider PM team |
 | prismatic-guide | Kraken team |
 | warehouse-guide | Kraken team |
 

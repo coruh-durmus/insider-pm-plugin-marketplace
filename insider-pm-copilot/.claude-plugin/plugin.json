@@ -1,0 +1,7 @@
+{
+  "name": "insider-pm-copilot",
+  "version": "1.0.0",
+  "description": "All-in-one PM copilot for Insider — internal knowledge, competitive intelligence, task improvement, doc writing, and PVD creation.",
+  "author": { "name": "Insider" },
+  "keywords": ["pm", "insider", "copilot", "knowledge", "competitive-intelligence", "jira", "confluence", "documentation", "pvd", "task-writer"]
+}
