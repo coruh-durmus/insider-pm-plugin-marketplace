@@ -1,0 +1,11 @@
+{
+  "team_name": "YourTeamName",
+  "confluence_space": "SPACE_KEY",
+  "confluence_parent_page_id": "12345678",
+  "jira_projects": ["PROJ1", "PROJ2"],
+  "trigger": {
+    "mode": "manual_only",
+    "auto_jira_status": null
+  },
+  "review": "always_approve"
+}

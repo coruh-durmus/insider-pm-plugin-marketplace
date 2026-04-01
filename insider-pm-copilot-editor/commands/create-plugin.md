@@ -6,4 +6,4 @@ argument-hint: ""
 
 Create a new plugin for the Insider PM marketplace.
 
-Invoke the `pm-plugin-creator` skill from `${CLAUDE_PLUGIN_ROOT}/skills/pm-plugin-creator/SKILL.md`.
+Invoke the `pm-plugin-creator` skill from `${CLAUDE_PLUGIN_ROOT}/skills/plugin-creator/SKILL.md`.

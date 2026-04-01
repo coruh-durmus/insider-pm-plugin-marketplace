@@ -146,16 +146,16 @@ Tell the PM:
 
 Wait for confirmation.
 
-### 4. insider-pm-plugin-creator (no config needed)
+### 4. insider-pm-copilot-editor (no config needed)
 
 Install:
 ```bash
-claude plugin install insider-pm-plugin-creator@insider-pm-plugin-marketplace
+claude plugin install insider-pm-copilot-editor@insider-pm-plugin-marketplace
 ```
 
 Tell the PM:
-> "Installed **insider-pm-plugin-creator** — create new plugins through a guided interview.
-> No configuration needed. Use `/create-plugin` to create a new plugin.
+> "Installed **insider-pm-copilot-editor** — edit the copilot and create standalone plugins.
+> No configuration needed. Use `/edit-copilot` to manage copilot components, or `/create-plugin` to create a new plugin.
 >
 > All plugins installed and configured!"
 
@@ -170,7 +170,7 @@ After all plugins are installed, show a summary:
 > | insider-pm-copilot | Installed + Configured | Knowledge, Intel, Docs, PVD, Tasks |
 > | warehouse-guide | Installed | No config needed |
 > | prismatic-guide | Installed | No config needed |
-> | insider-pm-plugin-creator | Installed | No config needed |
+> | insider-pm-copilot-editor | Installed | No config needed |
 >
 > Run `/reload-plugins` to activate all plugins.
 >

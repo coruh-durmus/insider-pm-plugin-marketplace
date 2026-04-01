@@ -8,7 +8,7 @@ Insider team's shared plugin marketplace for Claude Code.
 |--------|----------|-------------|
 | [warehouse-guide](./warehouse-guide/) | Development | Expert assistant for building Go integrations with Snowflake, BigQuery, Databricks, and Redshift |
 | [insider-pm-copilot](./insider-pm-copilot/) | Productivity | All-in-one PM copilot — internal knowledge, competitive intelligence, task improvement, doc writing, and PVD creation |
-| [insider-pm-plugin-creator](./insider-pm-plugin-creator/) | Productivity | Plugin creation tool — guided interview to generate full plugins with skills, commands, and marketplace integration |
+| [insider-pm-copilot-editor](./insider-pm-copilot-editor/) | Productivity | Copilot lifecycle editor — manage copilot components or create standalone plugins |
 
 ## Team Installers
 
@@ -20,7 +20,7 @@ Team installers are one-command plugins that install and configure all PM plugin
 
 ### Creating Your Own Team Installer
 
-Run `/create-team-installer` and follow the guided setup. It will ask you which plugins to include and what configs your team needs, then generate and publish the installer automatically.
+Use the Kraken installer as a reference template, or use `/create-plugin` to scaffold a new team installer plugin.
 
 ### Keeping Team Installers Up to Date
 
@@ -66,18 +66,18 @@ That's it — all plugins installed, configured, and auto-updating.
    /plugin marketplace add Corcit/insider-pm-plugin-marketplace
    ```
 
-2. Install the plugin creator:
+2. Install the copilot editor:
    ```bash
-   /plugin install insider-pm-plugin-creator@insider-pm-plugin-marketplace
+   /plugin install insider-pm-copilot-editor@insider-pm-plugin-marketplace
    /reload-plugins
    ```
 
 3. Create your team's installer:
    ```
-   /create-team-installer
+   /create-plugin
    ```
 
-   This walks you through selecting plugins and configuring them for your team. Once done, share the install commands with your team.
+   Describe that you want a team installer, and the guided interview will help you scaffold one. Use the Kraken installer as a reference.
 
 ### Installing individual plugins
 
@@ -153,7 +153,7 @@ The PM or team who created the plugin is responsible for reviewing and approving
 |--------|-------|
 | insider-pm-copilot | Insider PM team |
 | insider-kraken-plugin-installer | Kraken team |
-| insider-pm-plugin-creator | Insider PM team |
+| insider-pm-copilot-editor | Insider PM team |
 | prismatic-guide | Kraken team |
 | warehouse-guide | Kraken team |
 

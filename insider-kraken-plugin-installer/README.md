@@ -16,21 +16,18 @@ Then run:
 
 ## What It Installs
 
-The installer sets up 7 plugins in dependency order:
+The installer sets up 4 plugins:
 
 | Plugin | Config |
 |---|---|
-| insider-pm-internal-knowledge | No config needed |
-| insider-competitor-intel | No config needed |
+| insider-pm-copilot | Docs: ProductKB/3481600323, PVD: 4087152775, Tasks: warehouse-guide + Shopify + prismatic |
 | warehouse-guide | No config needed |
-| insider-pm-doc-writer | Confluence: ProductKB, Parent Page: 3481600323, Jira: SD |
-| insider-pm-pvd-writer | PVD Parent Page: 4087152775 |
-| insider-pm-task-writer | Sources: warehouse-guide, Shopify MCP, prismatic-guide |
-| insider-pm-plugin-creator | No config needed |
+| prismatic-guide | No config needed |
+| insider-pm-copilot-editor | No config needed |
 
 ## How It Works
 
-1. Installs each plugin from the marketplace in dependency order
+1. Installs each plugin from the marketplace in order
 2. Shows the pre-configured Kraken settings for each plugin
 3. Waits for your confirmation before moving to the next
 4. Writes the config files automatically
@@ -39,11 +36,7 @@ After installation, run `/reload-plugins` to activate all plugins.
 
 ## Customizing After Install
 
-All configs are pre-set for the Kraken team. If you need to change any setting, run the individual plugin's setup wizard:
-
-- `/setup-docs` — reconfigure doc-writer
-- `/setup-pvd-plugin` — reconfigure PVD writer
-- `/setup-task-writer` — reconfigure task writer
+All configs are pre-set for the Kraken team. To change any setting, run `/setup` to reconfigure the copilot.
 
 ## Creating Your Own Team Installer
 

@@ -47,45 +47,21 @@ The plugin never accesses Confluence, Jira, Slack, or any other external data so
 Ask the PM:
 > "How would you like to create your plugin?
 > - A) Start from scratch — I'll interview you about what you need
-> - B) Use an existing plugin as a base — tell me which plugin to adapt
-> - C) Create a team installer — set up a one-command installer for your team"
+> - B) Use an existing plugin as a base — tell me which plugin to adapt"
 
 **If A (Scratch):** Proceed to Phase 2.
-
-**If C (Team installer):** Proceed to Phase 1C (Team Installer Flow).
 
 **If B (Adapt existing):**
 1. Read the marketplace directory to find all available plugins
 2. List them with descriptions:
    > "Here are the available plugins:
-   > 1. warehouse-guide — Go integrations with data warehouses
-   > 2. insider-competitor-intel — competitive intelligence
-   > 3. insider-pm-internal-knowledge — unified product knowledge
-   > 4. insider-pm-doc-writer — Confluence documentation writer
-   > 5. insider-pm-pvd-writer — PVD creator
-   > 6. insider-pm-task-writer — Jira task improver
+   > 1. insider-pm-copilot — all-in-one PM copilot (knowledge, competitive intel, tasks, docs, PVD)
+   > 2. warehouse-guide — Go integrations with data warehouses
+   > 3. prismatic-guide — Prismatic.io integration expertise
    >
    > Which one would you like to use as a base?"
 3. Read the selected plugin's full structure (plugin.json, SKILL.md, commands, config)
 4. Proceed to Phase 2 with the base plugin as context
-
-## Phase 1C — Team Installer Flow
-
-If the PM wants to create a team installer:
-
-1. Ask: "What is your team name?"
-2. Read the marketplace directory to list all available plugins
-3. For each plugin, ask: "Should this be included in the installer?"
-4. For plugins that need config (doc-writer, pvd-writer, task-writer, etc.), ask the PM for their team's config values
-5. Use `insider-kraken-plugin-installer` as a reference for the structure — read it from the marketplace directory
-6. Generate the installer plugin with:
-   - `plugin.json` with team name in author
-   - A single command: `/install-<team>-plugins`
-   - A skill that installs each selected plugin in dependency order, shows config, and waits for confirmation
-   - README explaining what it installs
-7. Proceed to Phase 6 (Review) and Phase 7 (Publish)
-
-The generated installer should follow the exact same pattern as `insider-kraken-plugin-installer`.
 
 ## Phase 2 — Interview
 
@@ -127,9 +103,9 @@ Based on the description, suggest commands:
 
 ### Question 6: Write Operations
 > "Should this plugin write to any external system?
-> - A) Read-only everywhere (like insider-pm-internal-knowledge)
-> - B) Can write to Confluence with PM approval (like insider-pm-doc-writer)
-> - C) Outputs local files only (like insider-pm-task-writer)
+> - A) Read-only everywhere (like insider-pm-copilot)
+> - B) Can write to Confluence with PM approval (like insider-pm-copilot)
+> - C) Outputs local files only (like insider-pm-copilot)
 > - D) Other — describe what it should write to"
 
 ### Question 7: Anything Else
@@ -141,13 +117,14 @@ Based on the PM's answers, scan existing Insider plugins and recommend dependenc
 
 | PM describes... | Suggested dependency |
 |---|---|
-| Needs product knowledge, context from Confluence/Jira/codebase/Slack | `insider-pm-internal-knowledge` |
-| Needs competitive research or benchmarking | `insider-competitor-intel` |
+| Needs product knowledge, context from Confluence/Jira/codebase/Slack | `insider-pm-copilot` (pm-internal-knowledge skill) |
+| Needs competitive research or benchmarking | `insider-pm-copilot` (competitor-intelligence skill) |
 | Needs data warehouse context (Snowflake, BigQuery, etc.) | `warehouse-guide` |
+| Needs Prismatic.io integration context | `prismatic-guide` |
 
 Present recommendations:
 > "Based on your description, I recommend these dependencies:
-> - `insider-pm-internal-knowledge` — for gathering context from all internal sources
+> - `insider-pm-copilot` — for gathering context from all internal sources
 > - [other recommendations...]
 >
 > Does this look right? Add or remove any?"
@@ -317,7 +294,7 @@ Then ask about PR:
 - **Marketplace repo:** https://github.com/Corcit/insider-pm-plugin-marketplace
 - **Naming convention.** Default to `insider-pm-*` naming unless the PM specifies otherwise.
 - **No dependencies for this plugin.** This plugin itself has no dependencies — it works out of the box.
-- **Check team installer impact.** When creating a new plugin or improving an existing one, check if any team installers in the marketplace are affected. Team installers (like `insider-kraken-plugin-installer`) hardcode plugin lists and configs. If you add a new plugin, rename one, change its config format, or add required setup steps, flag it:
-  > "This change may affect these team installers: [list]. They may need to be updated to include/reflect this change."
+- **Check team installer impact.** When creating a new plugin or improving an existing one, check if `insider-kraken-plugin-installer` is affected. This team installer hardcodes plugin lists and configs. If you add a new plugin, rename one, change its config format, or add required setup steps, flag it:
+  > "This change may affect `insider-kraken-plugin-installer`. It may need to be updated to include/reflect this change."
 
 IMPORTANT: The file must start with the YAML frontmatter block (starting with ---). Create necessary directories. Do NOT commit. Report status when done.
