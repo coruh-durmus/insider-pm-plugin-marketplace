@@ -176,7 +176,10 @@ Example: Task mentions "Snowflake" → config has warehouse-guide with keywords 
 5. **Choose review mode**:
    > "How would you like to review the improvements?
    > - A) One by one — I show each improved task for your approval
-   > - B) All at once — I improve all selected tasks and show them together"
+   > - B) All at once — I improve all selected tasks and show them together
+   > - C) Parallel (agent-accelerated) — I dispatch parallel workers to improve all selected tasks simultaneously"
+
+   > **Agent-accelerated mode:** When processing 3+ tasks with option C, the `backlog-improver` orchestrator agent dispatches parallel `task-improver` workers for simultaneous improvement. This is the recommended path for large backlogs. See `${CLAUDE_PLUGIN_ROOT}/agents/` for agent definitions.
 
 6. **Improve selected tasks** — for each selected task:
    - Gather context from knowledge hub + competitor intel + additional sources (keyword-routed)

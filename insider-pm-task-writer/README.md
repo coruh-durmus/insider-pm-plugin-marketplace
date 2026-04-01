@@ -47,6 +47,17 @@ The wizard will ask for your team name and any team-specific sources (e.g., Shop
 /improve-backlog all todo tasks in Sprint 42              # Natural language
 ```
 
+## Agents
+
+For bulk processing, the plugin includes two agents that enable parallel task improvement:
+
+| Agent | Role | Description |
+|---|---|---|
+| `backlog-improver` | Orchestrator | Manages end-to-end bulk workflow: fetch tasks, score, get PM approval, dispatch parallel workers, write summary |
+| `task-improver` | Worker | Improves a single task: gathers context from all sources, generates improved description, writes output file |
+
+The orchestrator dispatches up to 5 workers simultaneously, processing large backlogs significantly faster than sequential mode. Select the **Parallel** review mode when prompted during `/improve-backlog` to use agent-accelerated processing.
+
 ## Quality Scoring
 
 Tasks are scored on 5 criteria (max 10 points):
