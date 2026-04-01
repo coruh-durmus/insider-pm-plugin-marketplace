@@ -1,11 +1,46 @@
 ---
 description: Interactive setup wizard to configure insider-pm-copilot for your team
-allowed-tools: Read, Write, WebFetch, WebSearch
+allowed-tools: Read, Write, Bash, WebFetch, WebSearch
 ---
 
 # Unified Setup Wizard
 
 Configure the insider-pm-copilot plugin for your team. This wizard walks you through all capabilities and writes a unified `team-config.json`.
+
+## Step 0 — Team Selection
+
+Check for team presets at `${CLAUDE_PLUGIN_ROOT}/config/presets/`. List all `.json` files in that directory.
+
+**If presets exist**, present them:
+> "Welcome! Select your team or set up a new one:"
+
+List each preset by reading the `team_name` field from each JSON file:
+> - A) Kraken (pre-configured)
+> - B) [other teams...]
+> - Z) New team — I'll walk you through setup
+
+**If no presets exist**, skip to Step 1.
+
+### If PM selects an existing team:
+
+1. Read the preset file (e.g., `${CLAUDE_PLUGIN_ROOT}/config/presets/kraken.json`)
+2. Show the pre-configured settings:
+   > "Here's the **[team_name]** configuration:
+   >
+   > **Docs:** Space: [confluence_space], Parent Page: [id], Jira: [projects]
+   > **PVD:** Parent Page: [id]
+   > **Tasks:** [N] additional sources ([source names])
+   >
+   > **Recommended plugins to install:** [list from recommended_plugins]
+   >
+   > Apply this configuration? (yes / customize)"
+
+3. **If yes**: Write `config/team-config.json` from the preset's `config` section (adding `team_name` at the top level). Skip to Step 7.
+4. **If customize**: Pre-fill the wizard (Steps 1-6) with the preset values. The PM adjusts only what they want to change.
+
+### If PM selects "New team":
+
+Proceed to Step 1.
 
 ## Step 1 — Team Name (Required)
 
@@ -120,7 +155,55 @@ The file structure:
 
 Set sections to `null` if they were skipped. If updating an existing config, merge — preserve sections the PM didn't reconfigure.
 
-Do NOT commit to git. The config is git-ignored.
+Do NOT commit the team-config.json to git (it's git-ignored).
+
+## Step 6.5 — Save as Team Preset (New teams only)
+
+**Skip this step if the PM selected an existing preset in Step 0.**
+
+Ask:
+> "Would you like to save this configuration as a team preset? This lets other **[team_name]** members skip the full setup — they'll just select your team and confirm.
+> - A) Yes — save and push to the marketplace so everyone gets it
+> - B) Yes — save locally only
+> - C) No — skip"
+
+### If A (Save + Push):
+
+1. Ask about recommended plugins:
+   > "Which additional plugins does your team need alongside the copilot? (comma-separated, or 'none')
+   > Available: warehouse-guide, prismatic-guide, insider-pm-copilot-editor"
+
+2. Build the preset file:
+   ```json
+   {
+     "team_name": "...",
+     "recommended_plugins": ["..."],
+     "config": { <the same docs/pvd/tasks sections from team-config.json> }
+   }
+   ```
+
+3. Write to `${CLAUDE_PLUGIN_ROOT}/config/presets/<team_name_lowercase>.json`
+
+4. Stage and commit:
+   ```bash
+   cd ${CLAUDE_PLUGIN_ROOT}
+   git add config/presets/<team_name_lowercase>.json
+   git commit -m "feat: add <team_name> team preset"
+   git push origin main
+   ```
+
+5. Confirm:
+   > "Preset saved and pushed to the marketplace. Future **[team_name]** members will see it during `/setup`."
+
+### If B (Save locally):
+
+1. Ask about recommended plugins (same as A)
+2. Write the preset file
+3. Tell the PM: "Preset saved locally. To share it with your team, commit and push it to the marketplace."
+
+### If C (Skip):
+
+Do nothing. The PM can always run `/setup` again later.
 
 ## Step 7 — Confirmation
 
@@ -135,7 +218,15 @@ Show a summary of what was configured:
 > | Task Improvement | [Configured / Skipped] | [sources count] additional sources |
 > | Documentation | [Configured / Skipped] | Space: [space], Page: [id] |
 > | PVD Creation | [Configured / Skipped] | Parent: [id] |
+
+If the PM used a preset with `recommended_plugins`, also show:
+> **Recommended plugins for [team_name]:**
+> - warehouse-guide — `claude plugin install warehouse-guide@insider-pm-plugin-marketplace`
+> - prismatic-guide — `claude plugin install prismatic-guide@insider-pm-plugin-marketplace`
+> - insider-pm-copilot-editor — `claude plugin install insider-pm-copilot-editor@insider-pm-plugin-marketplace`
 >
+> Install these if you haven't already, then run `/reload-plugins`.
+
 > **Available commands:**
 > - `/product-search`, `/find-spec`, `/academy-learn`, `/ticket-context`, `/code-insight` — Knowledge search
 > - `/benchmark`, `/competitive-brief`, `/feature-compare`, `/release-tracker` — Competitive intelligence

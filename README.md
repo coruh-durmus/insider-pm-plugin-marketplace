@@ -10,83 +10,39 @@ Insider team's shared plugin marketplace for Claude Code.
 | [insider-pm-copilot](./insider-pm-copilot/) | Productivity | All-in-one PM copilot — internal knowledge, competitive intelligence, task improvement, doc writing, and PVD creation |
 | [insider-pm-copilot-editor](./insider-pm-copilot-editor/) | Productivity | Copilot lifecycle editor — manage copilot components or create standalone plugins |
 
-## Team Installers
-
-Team installers are one-command plugins that install and configure all PM plugins for a specific team. New team members run a single command to get their entire environment ready.
-
-| Installer | Team | Command |
-|-----------|------|---------|
-| [insider-kraken-plugin-installer](./insider-kraken-plugin-installer/) | Kraken | `/install-kraken-plugins` |
-
-### Creating Your Own Team Installer
-
-Use the Kraken installer as a reference template, or use `/create-plugin` to scaffold a new team installer plugin.
-
-### Keeping Team Installers Up to Date
-
-When you add a new plugin to the marketplace or change an existing plugin's configuration, **check if any team installers are affected.** Team installers hardcode plugin lists and configs — they need to be updated when:
-
-- A new plugin is added that teams should install
-- A plugin is renamed or removed
-- A plugin's config format changes
-- A plugin gains new required setup steps
-
 ## Getting Started
 
-### If your team already has an installer
-
-Check the [Team Installers](#team-installers) table above. If your team is listed, run these 4 commands:
+### 1. Add the marketplace
 
 ```bash
 /plugin marketplace add Corcit/insider-pm-plugin-marketplace
-/plugin install <your-team-installer>@insider-pm-plugin-marketplace
-/reload-plugins
-/<your-install-command>
 ```
 
-For example, Kraken team members run:
-```bash
-/plugin marketplace add Corcit/insider-pm-plugin-marketplace
-```
 Then run `/plugin`, select **insider-pm-plugin-marketplace**, and select **Enable auto-update**.
 
-Then install and run:
+### 2. Install the copilot
+
 ```bash
-/plugin install insider-kraken-plugin-installer@insider-pm-plugin-marketplace
+/plugin install insider-pm-copilot@insider-pm-plugin-marketplace
 /reload-plugins
-/install-kraken-plugins
 ```
 
-That's it — all plugins installed, configured, and auto-updating.
+### 3. Run setup
 
-### If your team doesn't have an installer yet
+```
+/setup
+```
 
-1. Add the marketplace:
-   ```bash
-   /plugin marketplace add Corcit/insider-pm-plugin-marketplace
-   ```
+If your team has a preset (e.g., Kraken), select it and confirm — setup is done in one step. If your team is new, the wizard walks you through configuration and offers to save your setup as a preset for your teammates.
 
-2. Install the copilot editor:
-   ```bash
-   /plugin install insider-pm-copilot-editor@insider-pm-plugin-marketplace
-   /reload-plugins
-   ```
-
-3. Create your team's installer:
-   ```
-   /create-plugin
-   ```
-
-   Describe that you want a team installer, and the guided interview will help you scaffold one. Use the Kraken installer as a reference.
-
-### Installing individual plugins
-
-You can also install plugins one by one:
+### Installing additional plugins
 
 ```bash
 /plugin install <plugin-name>@insider-pm-plugin-marketplace
 /reload-plugins
 ```
+
+Available: `warehouse-guide`, `prismatic-guide`, `insider-pm-copilot-editor`
 
 ## Contributing a New Plugin
 
@@ -152,7 +108,6 @@ The PM or team who created the plugin is responsible for reviewing and approving
 | Plugin | Owner |
 |--------|-------|
 | insider-pm-copilot | Insider PM team |
-| insider-kraken-plugin-installer | Kraken team |
 | insider-pm-copilot-editor | Insider PM team |
 | prismatic-guide | Kraken team |
 | warehouse-guide | Kraken team |

@@ -1,0 +1,39 @@
+{
+  "team_name": "Kraken",
+  "recommended_plugins": [
+    "warehouse-guide",
+    "prismatic-guide",
+    "insider-pm-copilot-editor"
+  ],
+  "config": {
+    "docs": {
+      "confluence_space": "ProductKB",
+      "confluence_parent_page_id": "3481600323",
+      "jira_projects": ["SD"],
+      "trigger": { "mode": "manual_only", "auto_jira_status": null },
+      "review": "always_approve"
+    },
+    "pvd": {
+      "pvd_parent_page_id": "4087152775"
+    },
+    "tasks": {
+      "additional_sources": [
+        {
+          "name": "warehouse-guide",
+          "type": "plugin",
+          "keywords": ["snowflake", "bigquery", "databricks", "redshift", "data warehouse"]
+        },
+        {
+          "name": "shopify",
+          "type": "mcp",
+          "keywords": ["shopify", "shopify webhook", "shopify integration"]
+        },
+        {
+          "name": "prismatic-guide",
+          "type": "plugin",
+          "keywords": ["prismatic", "ipaas", "embedded integration", "custom component", "connector", "prismatic.io"]
+        }
+      ]
+    }
+  }
+}

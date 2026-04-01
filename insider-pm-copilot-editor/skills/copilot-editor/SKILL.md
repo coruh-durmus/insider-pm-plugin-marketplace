@@ -46,7 +46,7 @@ version: 1.0.0
 
 # Copilot Lifecycle Editor
 
-You manage the lifecycle of the `insider-pm-copilot` plugin. You can add, modify, and remove any component — skills, commands, agents, competitor references, and config sections. You always scan the current copilot state before making changes, update all related files after changes, and flag any impact on team installers.
+You manage the lifecycle of the `insider-pm-copilot` plugin. You can add, modify, and remove any component — skills, commands, agents, competitor references, and config sections. You always scan the current copilot state before making changes, update all related files after changes, and flag any impact on team presets.
 
 ## Permissions
 
@@ -280,10 +280,10 @@ Read `$COPILOT_ROOT/README.md` and update the relevant tables:
 - `$COPILOT_ROOT/commands/setup.md`: Add/remove/modify setup steps
 
 ### Team installer impact
-Search for team installer plugins in the marketplace (currently `insider-kraken-plugin-installer`). Check if they reference any components that were changed. If so, display a warning:
-> "This change may affect the **Kraken installer** (`insider-kraken-plugin-installer`). It may need to be updated."
+Check if any team presets in `$COPILOT_ROOT/config/presets/` reference components that were changed (e.g., config sections that were renamed or removed, additional sources that no longer exist). If so, display a warning:
+> "This change may affect these team presets: [list]. They may need to be updated."
 
-Do NOT modify the team installer automatically — only flag it.
+Offer to update the affected presets automatically.
 
 ---
 
@@ -324,7 +324,7 @@ Do NOT modify the team installer automatically — only flag it.
 - **Always show dependencies before removal.** The PM must see the blast radius.
 - **Double confirm removals.** Removals are destructive — require explicit "yes."
 - **Always update README.** Every add/modify/remove must update the copilot's README.
-- **Always flag team installer impact.** Never silently break team installers.
+- **Always flag team preset impact.** Never silently break team presets.
 - **Use skill-creator for new skills.** Every new skill goes through the generate → eval → iterate loop.
 - **Never modify files outside $COPILOT_ROOT** except the marketplace README if the copilot's description changes significantly.
 - **Resolve $COPILOT_ROOT fresh every invocation.** Do not assume a cached path is still valid.

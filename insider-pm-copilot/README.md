@@ -73,6 +73,16 @@ Run `/setup` to create `config/team-config.json`. The config has four sections:
 - **docs**, **pvd**, and **tasks** sections can be configured independently
 - Re-run `/setup` anytime to add or change sections
 
+## Team Presets
+
+Pre-configured teams get one-step setup. During `/setup`, select your team and confirm — no manual config needed.
+
+**Available presets:** Kraken
+
+**Adding your team:** When you run `/setup` as a new team, you'll be offered to save your config as a preset and push it to the marketplace. Future team members will then see your team in the selection list.
+
+Presets are stored in `config/presets/<team>.json` and include the team config plus recommended additional plugins.
+
 ## Permissions
 
 | Source | Read | Write |
