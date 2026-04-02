@@ -1,6 +1,7 @@
 ---
+name: create-plugin
 description: Create a new plugin for the Insider PM plugin marketplace
-allowed-tools: Read, Write, Bash, WebFetch, WebSearch
+allowed-tools: Read, Write, Bash, WebFetch, WebSearch, Agent
 argument-hint: ""
 ---
 

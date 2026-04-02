@@ -40,6 +40,15 @@
       "author": {
         "name": "Insider"
       }
+    },
+    {
+      "name": "tech-design-lifecycle",
+      "description": "End-to-end tech design lifecycle — brainstorming, design generation, iterative review loops, refinement checks, and pre-review preflight analysis",
+      "source": "./tech-design-lifecycle",
+      "category": "development",
+      "author": {
+        "name": "Insider"
+      }
     }
   ]
 }

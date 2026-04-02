@@ -1,4 +1,5 @@
 ---
+name: edit-copilot
 description: Add, modify, remove, or view components in the PM copilot plugin
 allowed-tools: Read, Write, Bash, WebFetch, WebSearch, Agent
 argument-hint: "[add|modify|remove|view] [skill|command|agent|competitor|config]"

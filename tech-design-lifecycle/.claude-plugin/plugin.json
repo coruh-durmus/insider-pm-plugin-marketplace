@@ -1,0 +1,7 @@
+{
+  "name": "tech-design-lifecycle",
+  "version": "1.0.0",
+  "description": "End-to-end tech design lifecycle — brainstorming, design generation, iterative review loops, refinement checks, and pre-review preflight analysis.",
+  "author": { "name": "Insider" },
+  "keywords": ["tech-design", "brainstorm", "preflight", "refinement", "design-review", "lifecycle"]
+}

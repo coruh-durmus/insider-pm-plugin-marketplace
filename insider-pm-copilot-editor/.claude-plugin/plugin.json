@@ -1,10 +1,12 @@
 {
   "name": "insider-pm-copilot-editor",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Copilot lifecycle editor — add, modify, and remove skills, commands, agents, and competitors in insider-pm-copilot. Also creates standalone plugins.",
   "author": {
     "name": "Insider"
   },
+  "repository": "https://github.com/Corcit/insider-pm-plugin-marketplace",
+  "license": "MIT",
   "keywords": [
     "copilot",
     "editor",
