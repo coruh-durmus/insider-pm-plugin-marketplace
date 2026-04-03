@@ -82,6 +82,16 @@ Invoke the `pm-internal-knowledge` skill (at `${CLAUDE_PLUGIN_ROOT}/skills/pm-in
 
 Collect the synthesized result with all source citations. This is the raw material for writing the documentation.
 
+## Phase 2b — Additional Source Routing
+
+Read `docs.additional_sources` from the team config. If the section exists and is non-empty:
+
+1. Scan the feature description and gathered context for keywords matching any additional source
+2. If keywords match, invoke that source (plugin or MCP) to gather supplementary context
+3. Include the additional context alongside the knowledge hub results when generating documentation
+
+This is the same keyword-routing pattern used by `pm-task-writer`. If no `additional_sources` are configured or no keywords match, skip this phase.
+
 ## Phase 3 — Detect New vs. Update
 
 Read `docs.confluence_space` and `docs.confluence_parent_page_id` from the team config.

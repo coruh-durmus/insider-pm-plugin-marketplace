@@ -6,9 +6,10 @@ Insider team's shared plugin marketplace for Claude Code.
 
 | Plugin | Category | Description |
 |--------|----------|-------------|
-| [warehouse-guide](./warehouse-guide/) | Development | Expert assistant for building Go integrations with Snowflake, BigQuery, Databricks, and Redshift |
 | [insider-pm-copilot](./insider-pm-copilot/) | Productivity | All-in-one PM copilot — internal knowledge, competitive intelligence, task improvement, doc writing, and PVD creation |
 | [insider-pm-copilot-editor](./insider-pm-copilot-editor/) | Productivity | Copilot lifecycle editor — manage copilot components or create standalone plugins |
+| [kraken-team-skills](./kraken-team-skills/) | Team | Kraken team skills — data warehouse platforms, Prismatic.io embedded iPaaS, and Integration Hub database analytics |
+| [tech-design-lifecycle](./tech-design-lifecycle/) | Development | End-to-end tech design lifecycle — brainstorming, design generation, iterative review, refinement, and preflight |
 
 ## Getting Started
 
@@ -42,7 +43,7 @@ If your team has a preset (e.g., Kraken), select it and confirm — setup is don
 /reload-plugins
 ```
 
-Available: `warehouse-guide`, `prismatic-guide`, `insider-pm-copilot-editor`
+Available: `kraken-team-skills`, `insider-pm-copilot-editor`, `tech-design-lifecycle`
 
 ## Contributing a New Plugin
 
@@ -109,8 +110,8 @@ The PM or team who created the plugin is responsible for reviewing and approving
 |--------|-------|
 | insider-pm-copilot | Insider PM team |
 | insider-pm-copilot-editor | Insider PM team |
-| prismatic-guide | Kraken team |
-| warehouse-guide | Kraken team |
+| kraken-team-skills | Kraken team |
+| tech-design-lifecycle | Insider PM team |
 
 ## Keeping Plugins Up to Date
 

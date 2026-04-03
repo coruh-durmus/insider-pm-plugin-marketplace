@@ -81,6 +81,16 @@ Invoke the `competitor-intelligence` skill to research how competitors handle th
 - Where Insider can differentiate
 - Market positioning context
 
+### Additional Source Routing
+
+Read `pvd.additional_sources` from the team config. If the section exists and is non-empty:
+
+1. Scan the feature description for keywords matching any additional source
+2. If keywords match, invoke that source (plugin or MCP) as an additional parallel context stream
+3. Include its findings in the PVD content alongside knowledge hub and competitor research results
+
+This is the same keyword-routing pattern used by `pm-task-writer`. If no `additional_sources` are configured or no keywords match, skip this step.
+
 ### Reference PVD (if provided)
 If the PM provided a reference PVD, use `mcp__ekb__jira` to search for and read it from Confluence. Analyze:
 - Section structure and order

@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "integration-hub-db": {
+      "command": "npx",
+      "args": ["-y", "@benborla29/mcp-server-mysql"],
+      "env": {
+        "MYSQL_HOST": "medusa-db.cluster-ro-cwxvzubmfq3d.eu-west-1.rds.amazonaws.com",
+        "MYSQL_PORT": "3306",
+        "MYSQL_USER": "${KRAKEN_MYSQL_USER}",
+        "MYSQL_PASSWORD": "${KRAKEN_MYSQL_PASSWORD}",
+        "MYSQL_DATABASE": "integration-hub-db"
+      }
+    }
+  }
+}

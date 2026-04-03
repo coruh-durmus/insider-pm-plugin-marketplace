@@ -6,12 +6,12 @@
   },
   "plugins": [
     {
-      "name": "warehouse-guide",
-      "description": "Expert assistant for building Go integrations with Snowflake, BigQuery, Databricks, and Amazon Redshift",
-      "source": "./warehouse-guide",
-      "category": "development",
+      "name": "kraken-team-skills",
+      "description": "Kraken team skills — data warehouse platforms, Prismatic.io embedded iPaaS, and Integration Hub database analytics",
+      "source": "./kraken-team-skills",
+      "category": "team",
       "author": {
-        "name": "Çoruh"
+        "name": "Insider"
       }
     },
     {
@@ -28,15 +28,6 @@
       "description": "Copilot lifecycle editor — add, modify, and remove skills, commands, agents, and competitors in insider-pm-copilot. Also creates standalone plugins.",
       "source": "./insider-pm-copilot-editor",
       "category": "productivity",
-      "author": {
-        "name": "Insider"
-      }
-    },
-    {
-      "name": "prismatic-guide",
-      "description": "Expert assistant for building embedded iPaaS integrations with Prismatic.io",
-      "source": "./prismatic-guide",
-      "category": "development",
       "author": {
         "name": "Insider"
       }

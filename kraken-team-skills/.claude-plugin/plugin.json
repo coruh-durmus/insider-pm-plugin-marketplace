@@ -1,0 +1,7 @@
+{
+  "name": "kraken-team-skills",
+  "version": "1.0.0",
+  "description": "Kraken team skills — data warehouse platforms (Snowflake, BigQuery, Databricks, Redshift), Prismatic.io embedded iPaaS, and Integration Hub database analytics.",
+  "author": { "name": "Insider" },
+  "keywords": ["kraken", "warehouse", "prismatic", "integration-hub", "mysql", "analytics"]
+}

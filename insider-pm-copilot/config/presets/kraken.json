@@ -1,8 +1,7 @@
 {
   "team_name": "Kraken",
   "recommended_plugins": [
-    "warehouse-guide",
-    "prismatic-guide",
+    "kraken-team-skills",
     "insider-pm-copilot-editor"
   ],
   "config": {
@@ -11,27 +10,36 @@
       "confluence_parent_page_id": "3481600323",
       "jira_projects": ["SD"],
       "trigger": { "mode": "manual_only", "auto_jira_status": null },
-      "review": "always_approve"
+      "review": "always_approve",
+      "additional_sources": [
+        {
+          "name": "kraken-team-skills",
+          "type": "plugin",
+          "keywords": ["snowflake", "bigquery", "databricks", "redshift", "data warehouse", "prismatic", "ipaas", "embedded integration", "custom component", "connector", "prismatic.io", "integration hub", "integration match", "integration trigger", "webhook throttle", "partner integration"]
+        }
+      ]
     },
     "pvd": {
-      "pvd_parent_page_id": "4087152775"
+      "pvd_parent_page_id": "4087152775",
+      "additional_sources": [
+        {
+          "name": "kraken-team-skills",
+          "type": "plugin",
+          "keywords": ["snowflake", "bigquery", "databricks", "redshift", "data warehouse", "prismatic", "ipaas", "embedded integration", "custom component", "connector", "prismatic.io", "integration hub", "integration match", "integration trigger", "webhook throttle", "partner integration"]
+        }
+      ]
     },
     "tasks": {
       "additional_sources": [
         {
-          "name": "warehouse-guide",
+          "name": "kraken-team-skills",
           "type": "plugin",
-          "keywords": ["snowflake", "bigquery", "databricks", "redshift", "data warehouse"]
+          "keywords": ["snowflake", "bigquery", "databricks", "redshift", "data warehouse", "prismatic", "ipaas", "embedded integration", "custom component", "connector", "prismatic.io", "integration hub", "integration match", "integration trigger", "webhook throttle", "partner integration"]
         },
         {
           "name": "shopify",
           "type": "mcp",
           "keywords": ["shopify", "shopify webhook", "shopify integration"]
-        },
-        {
-          "name": "prismatic-guide",
-          "type": "plugin",
-          "keywords": ["prismatic", "ipaas", "embedded integration", "custom component", "connector", "prismatic.io"]
         }
       ]
     }

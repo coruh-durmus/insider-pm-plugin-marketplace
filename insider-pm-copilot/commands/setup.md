@@ -105,6 +105,26 @@ Store as `docs.trigger.mode` ("manual_only" or "manual_and_auto") and `docs.trig
 
 Store as `docs.review` ("always_approve" or "auto_minor").
 
+### 3f — Additional Sources (Documentation)
+> "Do you have team-specific knowledge sources (plugins or MCPs) that should be consulted when writing documentation? These are invoked automatically when the feature being documented mentions relevant keywords.
+>
+> Examples:
+> - kraken-team-skills plugin (for data warehouse, Prismatic, Integration Hub topics)
+> - Shopify MCP (for Shopify integration topics)
+>
+> List your sources, or say 'none' to skip."
+
+If the PM provides sources, for each one:
+> "For **[source name]**: What keywords should trigger this source? (comma-separated, e.g., snowflake, prismatic, integration hub)"
+
+Also determine the type:
+- If the source is a Claude Code plugin → type: "plugin"
+- If the source is an MCP server → type: "mcp"
+
+Store as `docs.additional_sources` array, where each entry has `name`, `type`, and `keywords`.
+
+If the PM says "none", store as `docs.additional_sources: []`.
+
 ## Step 4 — PVD Config (if selected)
 
 ### 4a — PVD Parent Page ID
@@ -116,15 +136,34 @@ If the PM provides a URL, extract the numeric page ID.
 
 Store as `pvd.pvd_parent_page_id` (as a string).
 
+### 4b — Additional Sources (PVD)
+> "Do you have team-specific knowledge sources (plugins or MCPs) that should be consulted when creating PVDs? These are invoked automatically when the feature being documented mentions relevant keywords.
+>
+> Examples:
+> - kraken-team-skills plugin (for data warehouse, Prismatic, Integration Hub topics)
+> - Shopify MCP (for Shopify integration topics)
+>
+> List your sources, or say 'none' to skip."
+
+If the PM provides sources, for each one:
+> "For **[source name]**: What keywords should trigger this source? (comma-separated, e.g., snowflake, prismatic, integration hub)"
+
+Also determine the type:
+- If the source is a Claude Code plugin → type: "plugin"
+- If the source is an MCP server → type: "mcp"
+
+Store as `pvd.additional_sources` array, where each entry has `name`, `type`, and `keywords`.
+
+If the PM says "none", store as `pvd.additional_sources: []`.
+
 ## Step 5 — Task Improvement Config (if selected)
 
-### 5a — Additional Sources
+### 5a — Additional Sources (Task Improvement)
 > "Do you have team-specific knowledge sources (plugins or MCPs) that should be consulted when improving tasks? These are invoked automatically when a task mentions relevant keywords.
 >
 > Examples:
-> - warehouse-guide plugin (for Snowflake, BigQuery tasks)
+> - kraken-team-skills plugin (for data warehouse, Prismatic, Integration Hub tasks)
 > - Shopify MCP (for Shopify integration tasks)
-> - prismatic-guide plugin (for Prismatic integration tasks)
 >
 > List your sources, or say 'none' to skip."
 
@@ -171,7 +210,7 @@ Ask:
 
 1. Ask about recommended plugins:
    > "Which additional plugins does your team need alongside the copilot? (comma-separated, or 'none')
-   > Available: warehouse-guide, prismatic-guide, insider-pm-copilot-editor"
+   > Available: kraken-team-skills, insider-pm-copilot-editor"
 
 2. Build the preset file:
    ```json
@@ -221,8 +260,7 @@ Show a summary of what was configured:
 
 If the PM used a preset with `recommended_plugins`, also show:
 > **Recommended plugins for [team_name]:**
-> - warehouse-guide — `claude plugin install warehouse-guide@insider-pm-plugin-marketplace`
-> - prismatic-guide — `claude plugin install prismatic-guide@insider-pm-plugin-marketplace`
+> - kraken-team-skills — `claude plugin install kraken-team-skills@insider-pm-plugin-marketplace`
 > - insider-pm-copilot-editor — `claude plugin install insider-pm-copilot-editor@insider-pm-plugin-marketplace`
 >
 > Install these if you haven't already, then run `/reload-plugins`.
