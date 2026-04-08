@@ -32,6 +32,7 @@ Optional:
 | | `/release-tracker <name\|all> [days]` | Track recent competitor releases |
 | **Task Improvement** | `/improve-task [ticket-key]` | Improve a single task description |
 | | `/improve-backlog [JQL]` | Improve multiple tasks from a backlog |
+| | `/approve-tasks [--status]` | Review/approve improved tasks or resume a previous session |
 | **Documentation** | `/write-docs [ticket-key]` | Create or update Confluence docs |
 | **PVD** | `/create-pvd` | Create a Product Value Document |
 | **Setup** | `/setup` | Configure the plugin for your team |
@@ -92,7 +93,7 @@ Presets are stored in `config/presets/<team>.json` and include the team config p
 | Codebase | Via ekb MCP | Never |
 | Academy | Via WebSearch/WebFetch | N/A |
 | Slack | Via Slack MCP | Only DMs to @hop |
-| Local files | Yes | Only `task-improvements/` folder |
+| Local files | Yes | Only `task-improvements/` folder and `task-improvements/registry.json` |
 
 ## Covered Competitors
 

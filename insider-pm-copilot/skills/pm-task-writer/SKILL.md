@@ -94,7 +94,16 @@ Example: Task mentions "Snowflake" → config has warehouse-guide with keywords 
 
 1. **Read the task** — fetch ticket details via knowledge hub, or use pasted text
 
-2. **Score it** — evaluate against the 5 quality criteria. Show the score breakdown:
+2. **Check the registry** — read `task-improvements/registry.json`. If it exists and contains an entry for this ticket:
+   - **`status: "approved"`**: Compute the description fingerprint of the current Jira description (`len=<char count>|<first 50 chars>`). Compare with stored `description_fingerprint`.
+     - Stored fingerprint is `null` (retroactive entry): Treat as approved. Update the registry entry's `description_fingerprint` with the current computed value. Warn the PM: "SD-1234 was already improved and approved on [date]. The Jira description hasn't changed. Do you want to re-improve it anyway?" If PM says no, stop.
+     - Fingerprints match: Warn the PM: "SD-1234 was already improved and approved on [date]. The Jira description hasn't changed. Do you want to re-improve it anyway?" If PM says no, stop.
+     - Fingerprints differ: Inform the PM: "SD-1234 was improved on [date] but the Jira description has changed since then. Re-improving with the new description." Proceed.
+   - **`status: "pending_review"` or `"revision_requested"`**: Inform the PM: "SD-1234 has a previous improvement that hasn't been approved yet (saved at [output_file]). Would you like to review the existing improvement or generate a new one?" If PM wants the existing one, read and display it, then go to step 7.5 for approval.
+   - **`status: "stale"`**: Inform the PM: "SD-1234 was previously improved but marked as stale (Jira changed). Re-improving." Proceed.
+   - **No entry or no registry file**: Proceed normally.
+
+3. **Score it** — evaluate against the 5 quality criteria. Show the score breakdown:
    > **Quality Score: 4/10**
    > - User Story: 0/2 — Missing
    > - Acceptance Criteria: 1/2 — Vague
@@ -102,21 +111,21 @@ Example: Task mentions "Snowflake" → config has warehouse-guide with keywords 
    > - Edge Cases: 0/2 — Not mentioned
    > - Scope: 2/2 — Well-defined
 
-3. **Gather context** — based on the task content:
+4. **Gather context** — based on the task content:
    - Invoke the `pm-internal-knowledge` skill for internal context (Confluence, Jira, codebase, Academy, Slack, Hop)
    - Invoke the `competitor-intelligence` skill if the task has competitive relevance
    - Route to additional sources based on keyword matching from config
 
-4. **Generate improved description** — rewrite with:
+5. **Generate improved description** — rewrite with:
    - Proper user story format: "As a [role], I want [action], so that [benefit]"
    - Clear, testable acceptance criteria
    - Sufficient context for a developer
    - Edge cases and error scenarios
    - Well-defined scope
 
-5. **Show original vs. improved** — present side by side with score before and after
+6. **Show original vs. improved** — present side by side with score before and after
 
-6. **Write to file** — create the output directory and save:
+7. **Write to file** — create the output directory and save:
    ```
    task-improvements/YYYY-MM-DD-HH-MM/SD-1234.md
    ```
@@ -134,8 +143,42 @@ Example: Task mentions "Snowflake" → config has warehouse-guide with keywords 
    [copy-ready improved description with user story, AC, context, edge cases]
    ```
 
-7. **Confirm** — tell the PM where the file was saved:
-   > "Improved description saved to `task-improvements/YYYY-MM-DD-HH-MM/SD-1234.md`. Copy the 'Improved Description' section to Jira."
+8. **Confirm** — tell the PM where the file was saved.
+
+9. **Review and approve** — present the improved description to the PM for review:
+
+   ```
+   SD-1234 — [Task Title] ([original]/10 → [improved]/10)
+
+   [Display the improved description]
+
+   Approve this improvement?
+   A) Approve — I'll copy this to Jira
+   B) Request changes — tell me what to adjust
+   C) Later — I'll review with /approve-tasks
+   ```
+
+   Based on PM response:
+   - **Approve**: Update `task-improvements/registry.json` — set entry `status: "approved"`, `approved_at` to current ISO timestamp. Write registry.
+   - **Request changes**: Ask the PM what to change. Store feedback in `pm_feedback`, set `status: "revision_requested"` in registry. Re-improve incorporating the feedback (repeat steps 4-7), then re-present for approval.
+   - **Later**: Update registry — set entry `status: "pending_review"`, assign `review_index: 1`. Write registry. Tell the PM: "Run `/approve-tasks` to review later."
+
+   **Registry entry format** (create or update in `task-improvements/registry.json`):
+   ```json
+   {
+     "ticket_key": "SD-1234",
+     "title": "[Task Title]",
+     "original_score": 4,
+     "improved_score": 9,
+     "improved_at": "<current ISO 8601 timestamp>",
+     "approved_at": null,
+     "output_file": "task-improvements/YYYY-MM-DD-HH-MM/SD-1234.md",
+     "run_directory": "task-improvements/YYYY-MM-DD-HH-MM",
+     "status": "pending_review",
+     "review_index": 1,
+     "description_fingerprint": "len=<char count>|<first 50 chars of original Jira description>"
+   }
+   ```
 
 ## Bulk Mode (`/improve-backlog`)
 
@@ -149,44 +192,52 @@ Example: Task mentions "Snowflake" → config has warehouse-guide with keywords 
 
 1. **Fetch tasks** — query Jira via knowledge hub using JQL. Get all matching tickets.
 
-2. **Score all tasks** — evaluate each against the 5 quality criteria.
+2. **Check the registry** — read `task-improvements/registry.json`. If it exists, classify each fetched task the same way as the `backlog-improver` agent's Phase 1.5:
+   - `status: "approved"` + fingerprint is `null` (retroactive entry) → **APPROVED** (skip by default, update stored fingerprint with current value)
+   - `status: "approved"` + fingerprint matches → **APPROVED** (skip by default)
+   - `status: "approved"` + fingerprint differs → **STALE** (include with flag)
+   - `status: "pending_review"` or `"revision_requested"` → **PENDING** (flag, include)
+   - No entry → **NEW**
 
-3. **Present scoring summary**:
+3. **Score all tasks** — evaluate each against the 5 quality criteria. **Skip scoring for APPROVED tasks.**
+
+4. **Present scoring summary** with a Registry column:
    ```
    Quality Scores (threshold: 7/10)
 
-   | Ticket | Title | Score | Issues |
-   |--------|-------|-------|--------|
-   | SD-1234 | Add WhatsApp templates | 4/10 | Missing AC, no edge cases |
-   | SD-1235 | Fix email rendering | 6/10 | Vague user story |
-   | SD-1236 | CDP segment export v2 | 9/10 | Good |
-   | SD-1237 | Journey timeout handling | 3/10 | Missing user story, AC, context |
+   | Ticket | Title | Score | Issues | Registry |
+   |--------|-------|-------|--------|----------|
+   | SD-1234 | Add WhatsApp templates | 4/10 | Missing AC, no edge cases | NEW |
+   | SD-1235 | Fix email rendering | — | — | APPROVED (Apr 2) — skipping |
+   | SD-1236 | CDP segment export v2 | 9/10 | Good | NEW |
+   | SD-1237 | Journey timeout handling | 3/10 | Missing user story, AC, context | STALE (Jira changed) |
 
-   3 of 4 tasks need improvement (below 7/10).
+   2 of 4 tasks need improvement (below 7/10). 1 already approved (skipped).
    ```
 
-4. **PM decides** — the PM can say:
-   - "Improve all" — improve all tasks below threshold
+5. **PM decides** — the PM can say:
+   - "Improve all" — improve all tasks below threshold (excludes APPROVED)
+   - "Improve all including stale" — include stale tasks too
    - "Improve SD-1234 and SD-1237" — pick specific ones
    - "Skip" — cancel
    - Override threshold: "use threshold 5"
 
-5. **Choose review mode**:
+6. **Choose review mode**:
    > "How would you like to review the improvements?
    > - A) One by one — I show each improved task for your approval
    > - B) All at once — I improve all selected tasks and show them together
    > - C) Parallel (agent-accelerated) — I dispatch parallel workers to improve all selected tasks simultaneously"
 
-   > **Agent-accelerated mode:** When processing 3+ tasks with option C, the `backlog-improver` orchestrator agent dispatches parallel `task-improver` workers for simultaneous improvement. This is the recommended path for large backlogs. See `${CLAUDE_PLUGIN_ROOT}/agents/` for agent definitions.
+   > **Agent-accelerated mode:** When processing 3+ tasks with option C, the `backlog-improver` orchestrator agent dispatches parallel `task-improver` workers for simultaneous improvement. This is the recommended path for large backlogs. The `backlog-improver` agent handles registry updates and one-by-one review automatically. See `${CLAUDE_PLUGIN_ROOT}/agents/` for agent definitions.
 
-6. **Improve selected tasks** — for each selected task:
+7. **Improve selected tasks** — for each selected task:
    - Gather context from knowledge hub + competitor intel + additional sources (keyword-routed)
    - Generate improved description with user story, AC, context, edge cases
    - Present according to chosen review mode:
      - **One by one:** Show each improved task, wait for PM approval/revision before next
      - **All at once:** Show all improved tasks together, PM reviews the batch
 
-7. **Write to files** — save all improved descriptions:
+8. **Write to files** — save all improved descriptions:
    ```
    task-improvements/YYYY-MM-DD-HH-MM/
    ├── SD-1234.md
@@ -197,8 +248,16 @@ Example: Task mentions "Snowflake" → config has warehouse-guide with keywords 
 
    The `summary.md` contains the scoring summary table for all evaluated tasks.
 
-8. **Confirm** — tell the PM:
-   > "Improved descriptions saved to `task-improvements/YYYY-MM-DD-HH-MM/`. Copy each file's 'Improved Description' section to the corresponding Jira ticket."
+9. **Update registry and review** — for options A and B (non-parallel):
+   - Update `task-improvements/registry.json` with entries for all improved tasks (status: `pending_review`, sequential `review_index`)
+   - Enter the one-by-one PM review loop (same as the `backlog-improver` agent's Phase 8):
+     - Present each improved task for approval
+     - PM can approve, request changes, skip, or stop
+     - Write registry after each decision
+   - For option C (parallel), the `backlog-improver` agent handles this automatically.
+
+10. **Confirm** — after review is complete or stopped:
+    > "Improved descriptions saved to `task-improvements/YYYY-MM-DD-HH-MM/`. Run `/approve-tasks` to continue reviewing."
 
 ## Important Rules
 
@@ -210,3 +269,6 @@ Example: Task mentions "Snowflake" → config has warehouse-guide with keywords 
 - **Default threshold 7/10.** PM can override per invocation but doesn't need to.
 - **User story format is mandatory.** Every improved description must include "As a [role], I want [action], so that [benefit]".
 - **AC must be testable.** Each acceptance criterion should be verifiable — not vague.
+- **Check the improvement registry** (`task-improvements/registry.json`) for previously improved/approved tasks before scoring. Skip approved tasks unless the PM overrides.
+- **Update the registry after every improvement.** All improved tasks must be tracked with their status.
+- **One-by-one review is mandatory.** After improvement, guide the PM through approving each task. Save registry after each decision.
